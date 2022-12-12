@@ -19,3 +19,26 @@
   background-color: white;
   border-radius: 56px;
 }
+
+.page-container {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-container .title {
+  font-size: 65px;
+  height: 65px;
+  font-weight: 700;
+  letter-spacing: -5.5px;
+  color: black;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  margin-top: 30px;
+}

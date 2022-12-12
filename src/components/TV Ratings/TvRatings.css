@@ -1,16 +1,16 @@
-.gallery-card-grid {
+.tv-card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 22rem);
-    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fill, 10rem);
+    grid-gap: 5rem;
     justify-content: center;
     padding: 3rem;
 }
 
-.gallery-card-grid .card {
+.tv-card-grid .card {
     border: black solid 4px;
     border-radius: 12px;
     padding: 20px;
-    width: 15rem;
+    width: 10rem;
     height: 100%;
     background-color: cyan;
     display: flex;
@@ -18,20 +18,19 @@
     align-items: center;
     justify-content: space-between;
     filter: drop-shadow(10px 10px CornflowerBlue);
-    cursor: pointer;
 }
 
-.gallery-card-grid .card .title {
-    font-size: 65px;
+.tv-card-grid .card .title {
+    font-size: 2.25rem;
     font-weight: 500;
     font-family: Arial, Helvetica, sans-serif;
-    letter-spacing: -5.5px;
+    letter-spacing: -2px;
     line-height: 50px;
     color: black;
 
     display: flex;
     background-color: orange;
-    width: 17.5rem;
+    width: 12.5rem;
     height: 7rem;
     margin-top: -20px;
     padding-bottom: 10px;
@@ -40,21 +39,21 @@
     border-bottom: black 4px solid;
 }
 
-.gallery-card-grid .card .title .text {
+.tv-card-grid .card .title .text {
     display: flex;
     align-self: center;
 }
 
-.gallery-card-grid .card .img-container {
-    height: 250px;
-    width: 250px;
+.tv-card-grid .card .img-container {
+    height: 15rem;
+    width: 10rem;
     display: flex;
     align-content: center;
     justify-content: center;
     padding-top: 20px;
 }
 
-.gallery-card-grid .card .img-container .img {
+.tv-card-grid .card .img-container .img {
     width: 100%;
     object-fit: cover;
     border-radius: 20px;

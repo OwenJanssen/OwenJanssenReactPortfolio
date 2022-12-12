@@ -1,8 +1,10 @@
+import './App.css';
+
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
 import Gallery from './components/Gallery/Gallery';
 import Pong from './components/Pong/Pong';
-import './App.css';
+import TVRatings from './components/TV Ratings/TvRatings';
 
 const App = () => {
   return (
@@ -17,6 +19,11 @@ const App = () => {
           <Route path="/pong" element={
             <div>
               <Pong/>
+            </div>
+          } />
+          <Route path="/tv" element={
+            <div>
+              <TVRatings/>
             </div>
           } />
         </Routes>
