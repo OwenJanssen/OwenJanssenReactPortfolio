@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './Gallery.css'
+import './Gallery.css';
 
 type card = {
     url: string;

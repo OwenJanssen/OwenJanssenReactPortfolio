@@ -7,3 +7,15 @@
   width: 100vw;
   background-color: white;
 }
+
+.home-button {
+  position: absolute;
+  top: 88vh;
+  left: 50%;
+  margin-left: -28px;
+  height: 56px;
+  width: 56px;
+  border: 1px white solid;
+  background-color: white;
+  border-radius: 56px;
+}

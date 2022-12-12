@@ -1,5 +1,7 @@
-import React, { useState, KeyboardEvent, useEffect, useLayoutEffect, useRef } from 'react'
-import './Pong.css'
+import React, { useState, KeyboardEvent, useEffect, useLayoutEffect, useRef } from 'react';
+import HomeButton from '../HomeButton';
+import './Pong.css';
+
 
 type Position = {
     x: number;
@@ -69,16 +71,6 @@ const Pong = () : React.ReactElement => {
         }
     };
 
-    const movePlayerPaddle = () => {
-        if (ballPositionRef.current.y < playerPositionRef.current.y + 100) {
-            setPlayerPosition(p => {return {x: p.x, y: p.y - ENEMY_PADDLE_MOVEMENT}});
-        }
-
-        if (ballPositionRef.current.y > playerPositionRef.current.y + 100) {
-            setPlayerPosition(p => {return {x: p.x, y: p.y + ENEMY_PADDLE_MOVEMENT}});
-        }
-    };
-
     const moveBall = () => {
         if (!gameStartedRef.current || containerRef.current === null) return;
 
@@ -130,7 +122,6 @@ const Pong = () : React.ReactElement => {
 
     useEffect(() => {
         setInterval(moveEnemyPaddle, 10);
-        setInterval(movePlayerPaddle, 10);
         setInterval(moveBall, 10);
     });
 
@@ -167,11 +158,13 @@ const Pong = () : React.ReactElement => {
             <div className="game-header">Pong</div>
             {(!gameRunning && score.player === 0 && score.enemy === 0) && 
                 <div className="game-instructions">Use Arrow Keys To Move Paddle</div>}
-
+            
             <div className="scoreboard">
                 <div className="player-score">{score.player}</div>
                 <div className="enemy-score">{score.enemy}</div>
             </div>
+
+            <div className="home-button"><HomeButton/></div>
 
             <div className="paddle" style={{
                 left: playerPosition.x,

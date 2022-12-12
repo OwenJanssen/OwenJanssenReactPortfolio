@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import './App.css';
-import Pong from './Pong/Pong';
 import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
-import Gallery from './Gallery/Gallery';
+import Gallery from './components/Gallery/Gallery';
+import Pong from './components/Pong/Pong';
+import './App.css';
 
 const App = () => {
   return (
