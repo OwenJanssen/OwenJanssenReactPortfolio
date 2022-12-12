@@ -1,4 +1,4 @@
-import React, { useState, KeyboardEvent, useEffect, useLayoutEffect, useRef } from 'react';
+import React, { KeyboardEvent, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import HomeButton from '../HomeButton';
 import './Pong.css';
 
