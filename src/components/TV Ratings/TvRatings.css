@@ -1,9 +1,8 @@
 .tv-card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 18rem);
+    grid-template-columns: repeat(auto-fill, 19rem);
     grid-gap: 5rem;
     justify-content: center;
-    margin: 3rem;
     padding: 3rem;
     padding-bottom: 3rem;
 
@@ -16,9 +15,8 @@
     border: black solid 4px;
     border-radius: 12px;
     padding: 1rem;
-    width: 18rem;
-    height: 10rem;
     background-color: cyan;
+    height: 12rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -31,11 +29,11 @@
     display: flex;
     flex-direction: column;
     background-color: orange;
-    border-bottom-right-radius: 10px;
-    border-top-right-radius: 10px;
+    border-bottom-right-radius: 12px;
+    border-top-right-radius: 12px;
 
-    width: 12rem;
-    height: 100%;
+    width: 9.75rem;
+    height: 12rem;
     border-top: 3px black solid;
     border-bottom: 3px black solid;
     border-right: 3px black solid;
@@ -90,14 +88,14 @@
 }
 
 .tv-card-grid .card .img-container {
-    height: 10rem;
-    width: 6rem;
+    height: 12rem;
+    width: 7rem;
     display: flex;
     align-content: center;
     justify-content: center;
     border: 3px black solid;
-    border-bottom-left-radius: 10px;
-    border-top-left-radius: 10px;
+    border-bottom-left-radius: 12px;
+    border-top-left-radius: 12px;
 }
 
 .tv-card-grid .card .img-container .img {
@@ -147,4 +145,20 @@
     border-radius: 10px;
     background-color: cyan;
     filter: drop-shadow(4px 4px CornflowerBlue);  
+}
+
+.genre-for-card {
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: Monaco, monospace;
+    letter-spacing: -1px;
+    line-height: 1rem;
+    color: black;
+    padding: 0.25rem;
+    margin: 2px;
+    white-space: pre;
+
+    border: black 2px solid;
+    border-radius: 10px;
+    background-color: cyan;
 }

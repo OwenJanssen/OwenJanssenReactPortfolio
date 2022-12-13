@@ -1,14 +1,16 @@
 import './App.css';
 
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
 import Gallery from './components/Gallery/Gallery';
 import Pong from './components/Pong/Pong';
 import TVRatings from './components/TV Ratings/TvRatings';
 
 const App = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
   return (
-    <div className="App">
+    <div className="App" ref={containerRef}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={
@@ -18,12 +20,12 @@ const App = () => {
           } />
           <Route path="/pong" element={
             <div>
-              <Pong/>
+              <Pong containerRef={containerRef}/>
             </div>
           } />
           <Route path="/tv" element={
             <div>
-              <TVRatings/>
+              <TVRatings containerRef={containerRef}/>
             </div>
           } />
         </Routes>

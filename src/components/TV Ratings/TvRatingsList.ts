@@ -46,7 +46,7 @@ export const TvRatingsList : TvShow[] = [
         "comment": "",
         "favorite episode": "Three Minutes",
         "image_url": "https://m.media-amazon.com/images/M/MV5BNzhlY2E5NDUtYjJjYy00ODg3LWFkZWQtYTVmMzU4ZWZmOWJkXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_.jpg",
-        "genres": ["Action", "Drama"]
+        "genres": ["Action", "Drama", "Mystery"]
     },
     {
         "title": "The Wire",
@@ -116,7 +116,7 @@ export const TvRatingsList : TvShow[] = [
         "title": "The Office",
         "rating": 8.5,
         "comment": "",
-        "favorite episode": "",
+        "favorite episode": "Stress Relief",
         "image_url": "https://m.media-amazon.com/images/M/MV5BMDNkOTE4NDQtMTNmYi00MWE0LWE4ZTktYTc0NzhhNWIzNzJiXkEyXkFqcGdeQXVyMzQ2MDI5NjU@._V1_.jpg",
         "genres": ["Comedy"]
     },
@@ -222,6 +222,6 @@ export const TvRatingsList : TvShow[] = [
         "comment": "",
         "favorite episode": "DRONEZ: The Hunt for El Chingon",
         "image_url": "https://m.media-amazon.com/images/M/MV5BMTQ2Mjg3NTA5NV5BMl5BanBnXkFtZTgwNzExNTU1NjE@._V1_.jpg",
-        "genres": ["Comedy", "Mockumentary"]
+        "genres": ["Comedy"]
     }
 ]

@@ -3,7 +3,7 @@
 }
 
 .App {
-  height: max-content;
+  height: 100vh;
   width: 100vw;
   background-color: white;
 }
@@ -70,4 +70,14 @@
 .search-related-button {
   height: 45px;
   width: 45px;
+}
+
+.chord-diagram-container {
+  border: 5px solid black;
+  border-radius: 25px;
+  margin-right: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }

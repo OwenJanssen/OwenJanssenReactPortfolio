@@ -2,7 +2,6 @@ import React, { KeyboardEvent, useEffect, useLayoutEffect, useRef, useState } fr
 import HomeButton from '../HomeButton';
 import './Pong.css';
 
-
 type Position = {
     x: number;
     y: number;
@@ -13,13 +12,12 @@ type Score = {
     enemy: number;
 };
 
-const Pong = () : React.ReactElement => {
+const Pong = ({containerRef}) : React.ReactElement => {
     const ENEMY_PADDLE_MOVEMENT = 2;
     const PLAYER_PADDLE_MOMENT = 30;
     var BALL_HORIZONTAL_VELOCITY = 15;
     const PADDLE_DISTANCE_FROM_EDGE = 50;
 
-    const containerRef = useRef<HTMLDivElement>(null);
     const [playerPosition, setPlayerPosition] = useState<Position>({x: 0, y: 0});
     const [enemyPosition, setEnemyPosition] = useState<Position>({x: 0, y: 0});
     const [ballPosition, setBallPosition] = useState<Position>({x: 0, y: 0});
@@ -155,7 +153,6 @@ const Pong = () : React.ReactElement => {
 
     return (
         <div className="pong-container" onKeyDown={keyDownHandler} 
-                                        ref={containerRef}
                                         tabIndex={-1}>
             <div className="center-line"/>
 
