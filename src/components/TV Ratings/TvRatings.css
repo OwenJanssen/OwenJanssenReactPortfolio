@@ -1,60 +1,150 @@
 .tv-card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 10rem);
+    grid-template-columns: repeat(auto-fill, 18rem);
     grid-gap: 5rem;
     justify-content: center;
+    margin: 3rem;
     padding: 3rem;
+    padding-bottom: 3rem;
+
+    overflow-y: scroll;
+    border: solid black thick;
+    border-radius: 25px;
 }
 
 .tv-card-grid .card {
     border: black solid 4px;
     border-radius: 12px;
-    padding: 20px;
-    width: 10rem;
-    height: 100%;
+    padding: 1rem;
+    width: 18rem;
+    height: 10rem;
     background-color: cyan;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    filter: drop-shadow(10px 10px CornflowerBlue);
+    filter: drop-shadow(10px 10px CornflowerBlue);    
+    margin-bottom: -2rem;
 }
 
-.tv-card-grid .card .title {
-    font-size: 2.25rem;
-    font-weight: 500;
-    font-family: Arial, Helvetica, sans-serif;
-    letter-spacing: -2px;
+.tv-card-grid .card .card-text {
+    display: flex;
+    flex-direction: column;
+    background-color: orange;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+
+    width: 12rem;
+    height: 100%;
+    border-top: 3px black solid;
+    border-bottom: 3px black solid;
+    border-right: 3px black solid;
+}
+
+.tv-card-grid .card .card-text .title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: Monaco, monospace;
+    letter-spacing: -1px;
+    line-height: 1.75rem;
+    color: black;
+    white-space: pre ;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    overflow: hidden;
+
+    border-bottom: 2px solid black;
+}
+
+.tv-card-grid .card .card-text .rating {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: Monaco, monospace;
+    letter-spacing: -1px;
     line-height: 50px;
     color: black;
-
-    display: flex;
-    background-color: orange;
-    width: 12.5rem;
-    height: 7rem;
-    margin-top: -20px;
-    padding-bottom: 10px;
-    margin-bottom: -55px;
-    justify-content: center;
-    border-bottom: black 4px solid;
 }
 
-.tv-card-grid .card .title .text {
-    display: flex;
-    align-self: center;
+.tv-card-grid .card .card-text .favorite-episode {
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: Monaco, monospace;
+    letter-spacing: -1px;
+    line-height: 1rem;
+    white-space: pre;
+    color: black;
+    margin-left: 5px;
+    margin-right: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tv-card-grid .card .card-text .comment {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: Monaco, monospace;
+    letter-spacing: -1px;
+    line-height: 50px;
+    color: black;
 }
 
 .tv-card-grid .card .img-container {
-    height: 15rem;
-    width: 10rem;
+    height: 10rem;
+    width: 6rem;
     display: flex;
     align-content: center;
     justify-content: center;
-    padding-top: 20px;
+    border: 3px black solid;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
 }
 
 .tv-card-grid .card .img-container .img {
     width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 20px;
+    border-bottom-left-radius: 7.5px;
+    border-top-left-radius: 7.5px;
+}
+
+::-webkit-scrollbar {
+    width: 17px;
+}
+  
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 25px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: #E10098;
+    border-left: solid black 4px;
+}
+  
+::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    border-radius: 25px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;  
+    background-color: cyan;
+    border-left: solid black 4px;
+}
+
+.genre-button {
+    font-size: 1.25rem;
+    font-weight: 600;
+    font-family: Monaco, monospace;
+    letter-spacing: -1px;
+    line-height: 1.25rem;
+    color: black;
+    padding: 0.5rem;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: -10px;
+    white-space: pre;
+
+    border: black 3px solid;
+    border-radius: 10px;
+    background-color: cyan;
+    filter: drop-shadow(4px 4px CornflowerBlue);  
 }

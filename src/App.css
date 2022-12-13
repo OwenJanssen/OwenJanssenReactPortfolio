@@ -3,9 +3,16 @@
 }
 
 .App {
-  height: 100vh;
+  height: max-content;
   width: 100vw;
   background-color: white;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  align-items: center;
 }
 
 .home-button {
@@ -28,9 +35,9 @@
   flex-direction: column;
 }
 
-.page-container .title {
+.page-container .page-title {
   font-size: 65px;
-  height: 65px;
+  line-height: 65px;
   font-weight: 700;
   letter-spacing: -5.5px;
   color: black;
@@ -41,4 +48,26 @@
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   margin-top: 30px;
+}
+
+.searchbox {
+  width: 50vw;
+  display: flex;
+  align-self: center;
+  padding: 1rem;
+  border: 2px black solid;
+  border-radius: 36px;
+  background-color: cyan;
+  filter: drop-shadow(10px 10px CornflowerBlue);
+
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 400;
+  letter-spacing: -2px;
+  color: black;
+}
+
+.search-related-button {
+  height: 45px;
+  width: 45px;
 }

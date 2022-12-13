@@ -1,5 +1,14 @@
-{
-    "Breaking Bad": {
+export type TvShow = {
+    "title": string,
+    "rating": number,
+    "comment": string,
+    "favorite episode": string,
+    "image_url": string,
+    "genres": string[]
+}
+
+export const TvRatingsList : TvShow[] = [
+    {
         "title": "Breaking Bad",
         "rating": 9,
         "comment": "",
@@ -7,7 +16,7 @@
         "image_url": "https://m.media-amazon.com/images/M/MV5BYTU3NWI5OGMtZmZhNy00MjVmLTk1YzAtZjA3ZDA3NzcyNDUxXkEyXkFqcGdeQXVyODY5Njk4Njc@._V1_.jpg",
         "genres": ["Crime", "Drama", "Thriller"]
     },
-    "Better Call Saul": {
+    {
         "title": "Better Call Saul",
         "rating": 9.5,
         "comment": "",
@@ -15,7 +24,7 @@
         "image_url": "https://m.media-amazon.com/images/M/MV5BMTMxOGM0NzItM2E0OS00YWYzLWEzNzUtODUzZTBjM2I4MTZkXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_.jpg",
         "genres": ["Crime", "Drama"]
     },
-    "Ozark": {
+    {
         "title": "Ozark",
         "rating": 6.5,
         "comment": "",
@@ -23,7 +32,7 @@
         "image_url": "https://m.media-amazon.com/images/M/MV5BZDUxMWNlMTUtYTljZS00MTE0LTlkYjktOTU1ODZjYzBhMTk0XkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg",
         "genres": ["Crime", "Drama", "Thriller"]
     },
-    "Game of Thrones": {
+    {
         "title": "Game of Thrones",
         "rating": 7,
         "comment": "",
@@ -31,7 +40,7 @@
         "image_url": "https://m.media-amazon.com/images/M/MV5BYTRiNDQwYzAtMzVlZS00NTI5LWJjYjUtMzkwNTUzMWMxZTllXkEyXkFqcGdeQXVyNDIzMzcwNjc@._V1_.jpg",
         "genres": ["Fantasy", "Drama"]
     },
-    "Lost": {
+    {
         "title": "Lost",
         "rating": 5.5,
         "comment": "",
@@ -39,7 +48,7 @@
         "image_url": "https://m.media-amazon.com/images/M/MV5BNzhlY2E5NDUtYjJjYy00ODg3LWFkZWQtYTVmMzU4ZWZmOWJkXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_.jpg",
         "genres": ["Action", "Drama"]
     },
-    "The Wire": {
+    {
         "title": "The Wire",
         "rating": 8.5,
         "comment": "",
@@ -47,7 +56,7 @@
         "image_url": "https://m.media-amazon.com/images/M/MV5BNTllYzFhMjAtZjExNS00MjM4LWE5YmMtOGFiZGRlOTU5YzJiXkEyXkFqcGdeQXVyNDIzMzcwNjc@._V1_.jpg",
         "genres": ["Crime", "Drama"]
     },
-    "The Sopranos": {
+    {
         "title": "The Sopranos",
         "rating": 7.5,
         "comment": "",
@@ -55,7 +64,7 @@
         "image_url": "https://m.media-amazon.com/images/M/MV5BZGJjYzhjYTYtMDBjYy00OWU1LTg5OTYtNmYwOTZmZjE3ZDdhXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg",
         "genres": ["Crime", "Drama"]
     },
-    "Westworld": {
+    {
         "title": "Westworld",
         "rating": 8,
         "comment": "The first season gets a 9.5 but season 4 was unwatchable",
@@ -63,7 +72,7 @@
         "image_url": "https://m.media-amazon.com/images/M/MV5BZDg1OWRiMTktZDdiNy00NTZlLTg2Y2EtNWRiMTcxMGE5YTUxXkEyXkFqcGdeQXVyMTM2MDY0OTYx._V1_.jpg",
         "genres": ["Sci-Fi", "Drama"]
     },
-    "Succession": {
+    {
         "title": "Succession",
         "rating": 8.5,
         "comment": "",
@@ -71,7 +80,7 @@
         "image_url": "https://m.media-amazon.com/images/M/MV5BZDE0ODVlYjktNjJiMC00ODk4LWIwNTktMWRhZmZiOGFhYmUwXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg",
         "genres": ["Drama"]
     },
-    "Severance": {
+    {
         "title": "Severance",
         "rating": 9,
         "comment": "",
@@ -79,7 +88,7 @@
         "image_url": "https://m.media-amazon.com/images/M/MV5BMjkwZjcwMGQtNDAzOC00YjJiLThiYTgtNWU3ZjRiZmY2YzEzXkEyXkFqcGdeQXVyMTMzNDExODE5._V1_.jpg",
         "genres": ["Mystery", "Drama", "Sci-Fi"]
     },
-    "30 Rock": {
+    {
         "title": "30 Rock",
         "rating": 9.5,
         "comment": "Best sitcom of all time",
@@ -87,7 +96,7 @@
         "image_url": "https://m.media-amazon.com/images/M/MV5BMTQ4NDQ4OTUzOV5BMl5BanBnXkFtZTcwMjMzMTUyNw@@._V1_.jpg",
         "genres": ["Comedy"]
     },
-    "Portlandia": {
+    {
         "title": "Portlandia",
         "rating": 8.5,
         "comment": "",
@@ -95,7 +104,7 @@
         "image_url": "https://m.media-amazon.com/images/M/MV5BOGE2ZTQ3YTEtZTU4NC00NGVlLThjNmUtMGVmYjAzNjdjZmQyL2ltYWdlXkEyXkFqcGdeQXVyMzIyMjcyODI@._V1_.jpg",
         "genres": ["Comedy"]
     },
-    "Parks and Recreation": {
+    {
         "title": "Parks and Recreation",
         "rating": 7.5,
         "comment": "",
@@ -103,7 +112,7 @@
         "image_url": "https://m.media-amazon.com/images/M/MV5BYWNkOTg0OTMtZTcyNy00MWU1LWJhZDQtYjQzMjU1NjBhYzI2XkEyXkFqcGdeQXVyOTE4NzcwNzI@._V1_.jpg",
         "genres": ["Comedy"]
     },
-    "The Office": {
+    {
         "title": "The Office",
         "rating": 8.5,
         "comment": "",
@@ -111,7 +120,7 @@
         "image_url": "https://m.media-amazon.com/images/M/MV5BMDNkOTE4NDQtMTNmYi00MWE0LWE4ZTktYTc0NzhhNWIzNzJiXkEyXkFqcGdeQXVyMzQ2MDI5NjU@._V1_.jpg",
         "genres": ["Comedy"]
     },
-    "Brooklyn Nine-Nine": {
+    {
         "title": "Brooklyn Nine-Nine",
         "rating": 8,
         "comment": "",
@@ -119,7 +128,7 @@
         "image_url": "https://m.media-amazon.com/images/M/MV5BNzVkYWY4NzYtMWFlZi00YzkwLThhZDItZjcxYTU4ZTMzMDZmXkEyXkFqcGdeQXVyODUxOTU0OTg@._V1_.jpg",
         "genres": ["Comedy", "Crime"]
     },
-    "New Girl": {
+    {
         "title": "New Girl",
         "rating": 6.5,
         "comment": "",
@@ -127,7 +136,7 @@
         "image_url": "https://m.media-amazon.com/images/M/MV5BMjA0MDc1NTk0Ml5BMl5BanBnXkFtZTgwMTk2ODA5NDM@._V1_.jpg",
         "genres": ["Comedy"]
     },
-    "Community": {
+    {
         "title": "Community",
         "rating": 8,
         "comment": "",
@@ -135,7 +144,7 @@
         "image_url": "https://m.media-amazon.com/images/M/MV5BNDQ5NDZiYjktZmFmMy00MjAxLTk1MDktOGZjYTY5YTE1ODdmXkEyXkFqcGdeQXVyNjcwMzEzMTU@._V1_.jpg",
         "genres": ["Comedy"]
     },
-    "Seinfeld": {
+    {
         "title": "Seinfeld",
         "rating": 9,
         "comment": "",
@@ -143,7 +152,7 @@
         "image_url": "https://m.media-amazon.com/images/M/MV5BZjZjMzQ2ZmUtZWEyZC00NWJiLWFjM2UtMzhmYzZmZDcxMzllXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_.jpg",
         "genres": ["Comedy"]
     },
-    "Curb Your Enthusiasm": {
+    {
         "title": "Curb Your Enthusiasm",
         "rating": 9,
         "comment": "",
@@ -151,7 +160,7 @@
         "image_url": "https://m.media-amazon.com/images/M/MV5BMzE3ZDA4OWItOGY2ZC00MzVmLTk0Y2QtNzEzMjc5YWI5ZWFiXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg",
         "genres": ["Comedy"]
     },
-    "The Simpsons": {
+    {
         "title": "The Simpsons",
         "rating": 9.5,
         "comment": "",
@@ -159,7 +168,7 @@
         "image_url": "https://m.media-amazon.com/images/M/MV5BYjFkMTlkYWUtZWFhNy00M2FmLThiOTYtYTRiYjVlZWYxNmJkXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg",
         "genres": ["Comedy", "Animated"]
     },
-    "Broad City": {
+    {
         "title": "Broad City",
         "rating": 8,
         "comment": "",
@@ -167,15 +176,15 @@
         "image_url": "https://m.media-amazon.com/images/M/MV5BNTVjMGFhMmUtMTMwMS00OTE0LTlkODgtMzU0ZDZhY2U1NTliXkEyXkFqcGdeQXVyNjU2ODM5MjU@._V1_.jpg",
         "genres": ["Comedy"]
     },
-    "It's Always Sunny...": {
-        "title": "It's Always Sunny...",
+    {
+        "title": "It's Always Sunny In Philidelphia",
         "rating": 9,
         "comment": "",
         "favorite episode": "Charlie And Dee Find Love",
         "image_url": "https://m.media-amazon.com/images/M/MV5BMzg3ODVjZTYtZTAyNC00MzVjLTk3NmUtMGI4ZjZmNGQ1NmY4XkEyXkFqcGdeQXVyMzQ2MDI5NjU@._V1_.jpg",
         "genres": ["Comedy"]
     },
-    "Peep Show": {
+    {
         "title": "Peep Show",
         "rating": 7,
         "comment": "",
@@ -183,7 +192,7 @@
         "image_url": "https://m.media-amazon.com/images/M/MV5BZjYwMWJhOWMtZTc5ZC00MGY0LTg0ZjktMzFhODhhZGZhNDRjXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_.jpg",
         "genres": ["Comedy"]
     },
-    "The IT Crowd": {
+    {
         "title": "The IT Crowd",
         "rating": 7.5,
         "comment": "",
@@ -191,7 +200,7 @@
         "image_url": "https://m.media-amazon.com/images/M/MV5BM2FmMTVmNzktMGY4MS00ODVlLTgxZDktNmMxMjJhODAyOTlmXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_.jpg",
         "genres": ["Comedy"]
     },
-    "Atlanta": {
+    {
         "title": "Atlanta",
         "rating": 8.5,
         "comment": "",
@@ -199,7 +208,7 @@
         "image_url": "https://m.media-amazon.com/images/M/MV5BZGU1MzRhNmMtNDExOS00NTk2LWJlYzMtMzc4YWYyN2Q3M2ZmXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_.jpg",
         "genres": ["Comedy", "Drama"]
     },
-    "Barry": {
+    {
         "title": "Barry",
         "rating": 9,
         "comment": "",
@@ -207,7 +216,7 @@
         "image_url": "https://m.media-amazon.com/images/M/MV5BMzE0MDNiNDMtZTQ4Ni00MmQ4LTk4YzktZjFkYTVmODEzMDc2XkEyXkFqcGdeQXVyNTE1NjY5Mg@@._V1_.jpg",
         "genres": ["Comedy", "Drama", "Crime"]
     },
-    "Documentary Now": {
+    {
         "title": "Documentary Now",
         "rating": 8,
         "comment": "",
@@ -215,4 +224,4 @@
         "image_url": "https://m.media-amazon.com/images/M/MV5BMTQ2Mjg3NTA5NV5BMl5BanBnXkFtZTgwNzExNTU1NjE@._V1_.jpg",
         "genres": ["Comedy", "Mockumentary"]
     }
-}
+]

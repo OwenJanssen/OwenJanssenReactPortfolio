@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './Gallery.css';
 import '../../App.css'
 
@@ -31,9 +31,7 @@ const Gallery = () : React.ReactElement => {
 
     return (
         <div className="page-container">
-            <div className="title">
-                Owen Janssen's React Porfolio
-            </div>
+            <div className="page-title">Owen Janssen's React Porfolio</div>
 
             <div className="gallery-card-grid">
                 {cards.map(c => {

@@ -14,9 +14,9 @@ type Score = {
 };
 
 const Pong = () : React.ReactElement => {
-    const ENEMY_PADDLE_MOVEMENT = 0.02;
+    const ENEMY_PADDLE_MOVEMENT = 2;
     const PLAYER_PADDLE_MOMENT = 30;
-    var BALL_HORIZONTAL_VELOCITY = 0.05;
+    var BALL_HORIZONTAL_VELOCITY = 15;
     const PADDLE_DISTANCE_FROM_EDGE = 50;
 
     const containerRef = useRef<HTMLDivElement>(null);
@@ -62,11 +62,11 @@ const Pong = () : React.ReactElement => {
     gameStartedRef.current = gameRunning;
 
     const moveEnemyPaddle = () => {
-        if (ballPositionRef.current.y < enemyPositionRef.current.y + 100) {
+        if (ballPositionRef.current.y < enemyPositionRef.current.y + 75) {
             setEnemyPosition(p => {return {x: p.x, y: p.y - ENEMY_PADDLE_MOVEMENT}});
         }
 
-        if (ballPositionRef.current.y > enemyPositionRef.current.y + 100) {
+        if (ballPositionRef.current.y > enemyPositionRef.current.y + 125) {
             setEnemyPosition(p => {return {x: p.x, y: p.y + ENEMY_PADDLE_MOVEMENT}});
         }
     };
@@ -74,7 +74,7 @@ const Pong = () : React.ReactElement => {
     const moveBall = () => {
         if (!gameStartedRef.current || containerRef.current === null) return;
 
-        const randomYVelocityChange = (Math.random() - 0.5)/50;
+        const randomYVelocityChange = (Math.random() - 0.5)*20;
 
         // PADDLE_DISTANCE_FROM_EDGE + 20 is the horizontal value of the inward side of the paddle
         if (ballPositionRef.current.x < PADDLE_DISTANCE_FROM_EDGE + 20) {
@@ -121,8 +121,12 @@ const Pong = () : React.ReactElement => {
     };
 
     useEffect(() => {
-        setInterval(moveEnemyPaddle, 10);
-        setInterval(moveBall, 10);
+        const paddleId = setInterval(moveEnemyPaddle, 10);
+        const ballId = setInterval(moveBall, 10);
+        return () => {
+            clearInterval(paddleId);
+            clearInterval(ballId);
+        };
     });
 
     useLayoutEffect(() => {

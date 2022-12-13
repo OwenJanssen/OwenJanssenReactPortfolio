@@ -38,6 +38,8 @@
     margin-bottom: -55px;
     justify-content: center;
     border-bottom: black 4px solid;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
 }
 
 .gallery-card-grid .card .title .text {
