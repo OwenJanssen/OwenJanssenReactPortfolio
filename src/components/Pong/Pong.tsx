@@ -1,4 +1,5 @@
 import React, { KeyboardEvent, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import Countdown from '../Countdown';
 import HomeButton from '../HomeButton';
 import './Pong.css';
 
@@ -13,7 +14,7 @@ type Score = {
 };
 
 const Pong = ({containerRef}) : React.ReactElement => {
-    const ENEMY_PADDLE_MOVEMENT = 2;
+    const ENEMY_PADDLE_MOVEMENT = 5;
     const PLAYER_PADDLE_MOMENT = 30;
     var BALL_HORIZONTAL_VELOCITY = 15;
     const PADDLE_DISTANCE_FROM_EDGE = 50;
@@ -25,6 +26,9 @@ const Pong = ({containerRef}) : React.ReactElement => {
     const [gameRunning, setGameRunning] = useState<Boolean>(false);
     const [score, setScore] = useState<Score>({player: 0, enemy: 0});
     const scoreAdded = useRef<Boolean>(false);
+
+    const [roundCount, setRoundCount] = useState(0);
+    
 
     const resetGame = () => {
         const height = containerRef.current ? containerRef.current.offsetHeight : 0;
@@ -60,11 +64,13 @@ const Pong = ({containerRef}) : React.ReactElement => {
     gameStartedRef.current = gameRunning;
 
     const moveEnemyPaddle = () => {
-        if (ballPositionRef.current.y < enemyPositionRef.current.y + 75) {
+        if (!(enemyPositionRef.current.y < 10) &&
+            (ballPositionRef.current.y < enemyPositionRef.current.y + 75)) {
             setEnemyPosition(p => {return {x: p.x, y: p.y - ENEMY_PADDLE_MOVEMENT}});
         }
 
-        if (ballPositionRef.current.y > enemyPositionRef.current.y + 125) {
+        if (!(enemyPositionRef.current.y + 210 > (containerRef.current ? containerRef.current.offsetHeight : 0)) &&
+            (ballPositionRef.current.y > enemyPositionRef.current.y + 125)) {
             setEnemyPosition(p => {return {x: p.x, y: p.y + ENEMY_PADDLE_MOVEMENT}});
         }
     };
@@ -134,7 +140,7 @@ const Pong = ({containerRef}) : React.ReactElement => {
 
             setPlayerPosition({x: PADDLE_DISTANCE_FROM_EDGE, y: (height/2 - 100)});
             setEnemyPosition({x: PADDLE_DISTANCE_FROM_EDGE, y: (height/2 - 100)});
-            setBallPosition({x: width/2, y: height/2});
+            setBallPosition({x: width/2-15, y: height/2-15});
             BALL_HORIZONTAL_VELOCITY = 0.1 * (height/1920);
         }
     }, [containerRef.current?.offsetHeight, containerRef.current?.offsetWidth]);
@@ -181,7 +187,7 @@ const Pong = ({containerRef}) : React.ReactElement => {
                 top: ballPosition.y,
             }}/>
 
-            <div className="resume-buttons">
+            {false && <div className="resume-buttons">
                 {(!gameRunning && score.player === 0 && score.enemy === 0) && 
                     <button className="start" onClick={startGame}>Start Game</button>}
 
@@ -193,7 +199,9 @@ const Pong = ({containerRef}) : React.ReactElement => {
                 
                 {(!gameRunning && score.enemy === 5) && 
                     <button className="game-over" onClick={startGame}>You Lost! Press To Start Again</button>}
-            </div>
+            </div>}
+
+            {<Countdown trigger={roundCount} countMax={3}/>}
         </div>
     );
 }
