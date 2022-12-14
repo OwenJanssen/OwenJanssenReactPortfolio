@@ -70,7 +70,12 @@ const TVRatings = ({containerRef}) : React.ReactElement => {
             const height = containerRef.current.offsetHeight;
 
             console.log("DIMS CHANGED", {height: height/2, width: height/2, inner: 100, outer: 100+50});
-            setChordDiagramDimensions({height: height/2.5, width: height/2.5, inner: height/10, outer: height/10 + 20})
+            if (height >= 1000) {
+                setChordDiagramDimensions({height: height/2, width: height/2.5, inner: height/10, outer: height/10 + 20});
+            }
+            else {
+                setChordDiagramDimensions({height: height/2.625, width: height/2.5, inner: height/10, outer: height/10 + 20});
+            }
         }
     }, [containerRef.current, containerRef.current]);
 

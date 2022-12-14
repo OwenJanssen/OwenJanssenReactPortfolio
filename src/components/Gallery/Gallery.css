@@ -1,15 +1,15 @@
 .gallery-card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 22rem);
-    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fill, 17.5rem);
+    grid-gap: 3rem;
     justify-content: center;
-    padding: 3rem;
+    padding: 5rem;
 }
 
 .gallery-card-grid .card {
     border: black solid 4px;
     border-radius: 12px;
-    padding: 20px;
+    padding: 1rem;
     width: 15rem;
     height: 100%;
     background-color: cyan;
@@ -31,9 +31,9 @@
 
     display: flex;
     background-color: orange;
-    width: 17.5rem;
+    width: 17rem;
     height: 7rem;
-    margin-top: -20px;
+    margin-top: -1rem;
     padding-bottom: 10px;
     margin-bottom: -55px;
     justify-content: center;
@@ -48,12 +48,12 @@
 }
 
 .gallery-card-grid .card .img-container {
-    height: 250px;
-    width: 250px;
+    height: 15rem;
+    width: 15rem;
     display: flex;
     align-content: center;
     justify-content: center;
-    padding-top: 20px;
+    margin-top: 2rem;
 }
 
 .gallery-card-grid .card .img-container .img {

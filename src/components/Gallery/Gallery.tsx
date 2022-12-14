@@ -14,14 +14,14 @@ const Gallery = () : React.ReactElement => {
         {
             url: "pong", 
             title: "Pong", 
-            image_url: "https://i.imgur.com/lMc5Niy.png",
-            gif_url: "https://i.imgur.com/IhScUDB.gif",
+            image_url: "https://lh5.googleusercontent.com/zP3oV6o-fIohDNyGMaGZ--Q-nj0vR4T4gEin3U8OcVS42KWKsTZ5xiTL6uD48jXrkdE=w2400",
+            gif_url: "https://lh5.googleusercontent.com/bXYvfSq-gBmaCDzVLED8W8Ga0ZgLe-mALsGnp4fNFr0L5z1myAY2120aCBm4TFCNAoc=w2400",
         },
         {
             url: "tv", 
             title: "TV Reviews", 
-            image_url: "https://i.imgur.com/lMc5Niy.png",
-            gif_url: "https://i.imgur.com/IhScUDB.gif",
+            image_url: "https://lh5.googleusercontent.com/zP3oV6o-fIohDNyGMaGZ--Q-nj0vR4T4gEin3U8OcVS42KWKsTZ5xiTL6uD48jXrkdE=w2400",
+            gif_url: "https://lh5.googleusercontent.com/bXYvfSq-gBmaCDzVLED8W8Ga0ZgLe-mALsGnp4fNFr0L5z1myAY2120aCBm4TFCNAoc=w2400",
         },
     ]
     
