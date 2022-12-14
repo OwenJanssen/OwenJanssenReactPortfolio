@@ -4,8 +4,9 @@
     grid-gap: 5rem;
     justify-content: center;
     padding: 3rem;
-    padding-bottom: 3rem;
-
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    
     overflow-y: scroll;
     border: solid black thick;
     border-radius: 25px;
@@ -23,6 +24,9 @@
     justify-content: space-between;
     filter: drop-shadow(10px 10px CornflowerBlue);    
     margin-bottom: -2rem;
+    
+    position: relative;
+    top: -2rem;
 }
 
 .tv-card-grid .card .card-text {

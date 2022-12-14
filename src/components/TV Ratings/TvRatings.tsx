@@ -127,7 +127,7 @@ const TVRatings = ({containerRef}) : React.ReactElement => {
                                   outerRadius={chordDiagramDimensions.outer}
                                   innerRadius={chordDiagramDimensions.inner}
                                   style={chordDiagramStyle}
-                                  groupOnClick={(genre_i: number) => updateSelectedGenres(genres[genre_i])}/>
+                                  groupOnClick={(genre_i: number) => setSelectedGenres([genres[genre_i]])}/>
                 </div>
                 
                 <div className="tv-card-grid" style={{flex: 1, height: chordDiagramDimensions.height, marginLeft: "1.5rem"}}>

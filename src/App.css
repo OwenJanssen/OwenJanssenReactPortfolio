@@ -55,7 +55,7 @@
   display: flex;
   align-self: center;
   padding: 1rem;
-  border: 2px black solid;
+  border: 4px black solid;
   border-radius: 36px;
   background-color: cyan;
   filter: drop-shadow(10px 10px CornflowerBlue);
@@ -78,6 +78,6 @@
   margin-right: 1.5rem;
   padding-left: 1rem;
   padding-right: 1rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
