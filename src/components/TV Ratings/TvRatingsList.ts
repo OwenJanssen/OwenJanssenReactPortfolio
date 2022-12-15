@@ -106,7 +106,7 @@ export const TvRatingsList : TvShow[] = [
     },
     {
         "title": "Parks and Recreation",
-        "rating": 7.5,
+        "rating": 7,
         "comment": "",
         "favorite episode": "The Fight",
         "image_url": "https://m.media-amazon.com/images/M/MV5BYWNkOTg0OTMtZTcyNy00MWU1LWJhZDQtYjQzMjU1NjBhYzI2XkEyXkFqcGdeQXVyOTE4NzcwNzI@._V1_.jpg",
@@ -114,7 +114,7 @@ export const TvRatingsList : TvShow[] = [
     },
     {
         "title": "The Office",
-        "rating": 8.5,
+        "rating": 8,
         "comment": "",
         "favorite episode": "Stress Relief",
         "image_url": "https://m.media-amazon.com/images/M/MV5BMDNkOTE4NDQtMTNmYi00MWE0LWE4ZTktYTc0NzhhNWIzNzJiXkEyXkFqcGdeQXVyMzQ2MDI5NjU@._V1_.jpg",
@@ -122,7 +122,7 @@ export const TvRatingsList : TvShow[] = [
     },
     {
         "title": "Brooklyn Nine-Nine",
-        "rating": 8,
+        "rating": 7.5,
         "comment": "",
         "favorite episode": "The Jimmy Jab Games",
         "image_url": "https://m.media-amazon.com/images/M/MV5BNzVkYWY4NzYtMWFlZi00YzkwLThhZDItZjcxYTU4ZTMzMDZmXkEyXkFqcGdeQXVyODUxOTU0OTg@._V1_.jpg",
@@ -170,7 +170,7 @@ export const TvRatingsList : TvShow[] = [
     },
     {
         "title": "Broad City",
-        "rating": 8,
+        "rating": 7,
         "comment": "",
         "favorite episode": "Kockoffs",
         "image_url": "https://m.media-amazon.com/images/M/MV5BNTVjMGFhMmUtMTMwMS00OTE0LTlkODgtMzU0ZDZhY2U1NTliXkEyXkFqcGdeQXVyNjU2ODM5MjU@._V1_.jpg",
@@ -178,7 +178,7 @@ export const TvRatingsList : TvShow[] = [
     },
     {
         "title": "It's Always Sunny In Philidelphia",
-        "rating": 9,
+        "rating": 8,
         "comment": "",
         "favorite episode": "Charlie And Dee Find Love",
         "image_url": "https://m.media-amazon.com/images/M/MV5BMzg3ODVjZTYtZTAyNC00MzVjLTk3NmUtMGI4ZjZmNGQ1NmY4XkEyXkFqcGdeQXVyMzQ2MDI5NjU@._V1_.jpg",

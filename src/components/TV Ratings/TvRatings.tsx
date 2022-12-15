@@ -68,14 +68,9 @@ const TVRatings = ({containerRef}) : React.ReactElement => {
     useLayoutEffect(() => {
         if (containerRef.current) {
             const height = containerRef.current.offsetHeight;
+            const sideArea = height - 575;
 
-            console.log("DIMS CHANGED", {height: height/2, width: height/2, inner: 100, outer: 100+50});
-            if (height >= 1000) {
-                setChordDiagramDimensions({height: height/2, width: height/2.5, inner: height/10, outer: height/10 + 20});
-            }
-            else {
-                setChordDiagramDimensions({height: height/2.625, width: height/2.5, inner: height/10, outer: height/10 + 20});
-            }
+            setChordDiagramDimensions({height: Math.max(sideArea, 210), width: Math.max(sideArea, 210), inner: sideArea/4, outer: sideArea/4 + 20});
         }
     }, [containerRef.current, containerRef.current]);
 
@@ -99,7 +94,7 @@ const TVRatings = ({containerRef}) : React.ReactElement => {
                 </IconButton>
             </div>
             
-            {showSort && <div className="flex-row" style={{marginTop: '2rem'}}>
+            {showSort && <div className="flex-row" style={{marginTop: '2rem', flexWrap: "wrap"}}>
                 {["A to Z", "Rating"].map(sort => 
                     <div className="genre-button" style={{backgroundColor: (sortMethod === sort) ? "orangered" : "cyan"}}
                                                   key={sort} onClick={() => updateSortMethod(sort)}>
@@ -108,7 +103,7 @@ const TVRatings = ({containerRef}) : React.ReactElement => {
                 )}
             </div>}
 
-            <div className="flex-row" style={{marginTop: '2rem'}}>
+            <div className="flex-row" style={{marginTop: '2rem', }}>
                 {genres.map((genre) => (
                     <div className="genre-button" style={{backgroundColor: selectedGenres.includes(genre) ? "orangered" : "cyan"}}
                                                   key={genre} onClick={() => updateSelectedGenres(genre)}>

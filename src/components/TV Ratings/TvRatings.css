@@ -166,3 +166,13 @@
     border-radius: 10px;
     background-color: cyan;
 }
+
+.chord-diagram-container {
+    border: 5px solid black;
+    border-radius: 25px;
+    margin-right: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
