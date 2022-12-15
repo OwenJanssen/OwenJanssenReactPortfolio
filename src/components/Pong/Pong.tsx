@@ -1,5 +1,4 @@
 import React, { KeyboardEvent, useEffect, useLayoutEffect, useRef, useState } from 'react';
-import Countdown from '../Countdown';
 import HomeButton from '../HomeButton';
 import './Pong.css';
 
@@ -18,6 +17,7 @@ const Pong = ({containerRef}) : React.ReactElement => {
     const PLAYER_PADDLE_MOMENT = 30;
     var BALL_HORIZONTAL_VELOCITY = 15;
     const PADDLE_DISTANCE_FROM_EDGE = 50;
+    const MAX_SCORE = 5;
 
     const [playerPosition, setPlayerPosition] = useState<Position>({x: 0, y: 0});
     const [enemyPosition, setEnemyPosition] = useState<Position>({x: 0, y: 0});
@@ -27,8 +27,8 @@ const Pong = ({containerRef}) : React.ReactElement => {
     const [score, setScore] = useState<Score>({player: 0, enemy: 0});
     const scoreAdded = useRef<Boolean>(false);
 
-    const [roundCount, setRoundCount] = useState(0);
-    
+    const [showCountdown, setShowCountdown] = useState(false);
+    const [countdownNumber, setCountdownNumber] = useState(0);
 
     const resetGame = () => {
         const height = containerRef.current ? containerRef.current.offsetHeight : 0;
@@ -64,6 +64,8 @@ const Pong = ({containerRef}) : React.ReactElement => {
     gameStartedRef.current = gameRunning;
 
     const moveEnemyPaddle = () => {
+        if (!gameStartedRef.current || containerRef.current === null) return;
+
         if (!(enemyPositionRef.current.y < 10) &&
             (ballPositionRef.current.y < enemyPositionRef.current.y + 75)) {
             setEnemyPosition(p => {return {x: p.x, y: p.y - ENEMY_PADDLE_MOVEMENT}});
@@ -106,24 +108,43 @@ const Pong = ({containerRef}) : React.ReactElement => {
         setBallPosition(p => {return {x: p.x + ballVelocity.current.x, y: p.y + ballVelocity.current.y}})
     };
 
+    const movePlayer = (key: string) => {
+        if (!gameStartedRef.current || containerRef.current === null) return;
+
+        if (key === "ArrowDown" || key === "s") {
+            setPlayerPosition(p => {return {x: p.x, y: Math.min(p.y + PLAYER_PADDLE_MOMENT, containerRef.current ? containerRef.current.offsetHeight - 200 : 880)}});
+        }
+
+        if (key === "ArrowUp" || key === "w") {
+            setPlayerPosition(p => {return {x: p.x, y: Math.max(p.y - PLAYER_PADDLE_MOMENT, 0)}});
+        }
+    }
+
     const ballHitPaddle = (paddlePosition: Position) => {
         return (ballPositionRef.current.y > paddlePosition.y) && (ballPositionRef.current.y < paddlePosition.y + 200);
     };
 
     const giveEnemyPoint = () => {
-        resetGame();
         setScore(s => ({player: s.player, enemy: s.enemy + 1}));
         setGameRunning(false);
+
+        if (score.enemy >= 4) {return;}
+        setShowCountdown(true);
+        setCountdownNumber(3);
         scoreAdded.current = true;
     };
 
     const givePlayerPoint = () => {
-        resetGame();
         setScore(s => ({player: s.player + 1, enemy: s.enemy}));
         setGameRunning(false);
+
+        if (score.player >= 4) {return;}
+        setShowCountdown(true);
+        setCountdownNumber(3);
         scoreAdded.current = true;
     };
 
+    // Ball/Enemy movement
     useEffect(() => {
         const paddleId = setInterval(moveEnemyPaddle, 10);
         const ballId = setInterval(moveBall, 10);
@@ -133,6 +154,25 @@ const Pong = ({containerRef}) : React.ReactElement => {
         };
     });
 
+    // Countdown timer
+    useEffect(() => {
+        if (!showCountdown) { return; }
+
+        const intervalId = setInterval(() => {
+            setCountdownNumber(cn => {
+                if (cn == 1) {
+                    clearInterval(intervalId);
+                    setShowCountdown(false);
+                    resetGame();
+                }
+                return cn-1;
+            })
+        }, 1000);
+
+        return () => {clearInterval(intervalId)};
+    });
+
+    // Update game when the frame changes size
     useLayoutEffect(() => {
         if (containerRef.current) {
             const height = containerRef.current.offsetHeight;
@@ -148,12 +188,8 @@ const Pong = ({containerRef}) : React.ReactElement => {
     const keyDownHandler = (e: KeyboardEvent<HTMLDivElement>) => {
         e.preventDefault();
         
-        if (e.key === "ArrowDown" || e.key === "s") {
-            setPlayerPosition(p => {return {x: p.x, y: Math.min(p.y + PLAYER_PADDLE_MOMENT, containerRef.current ? containerRef.current.offsetHeight - 200 : 880)}});
-        }
-
-        if (e.key === "ArrowUp" || e.key === "w") {
-            setPlayerPosition(p => {return {x: p.x, y: Math.max(p.y - PLAYER_PADDLE_MOMENT, 0)}});
+        if (e.key === "ArrowDown" || e.key === "s" || e.key === "ArrowUp" || e.key === "w") {
+            movePlayer(e.key);
         }
     }
 
@@ -173,35 +209,33 @@ const Pong = ({containerRef}) : React.ReactElement => {
 
             <div className="home-button"><HomeButton/></div>
 
-            <div className="paddle" style={{
-                left: playerPosition.x,
-                top: playerPosition.y,
-            }}/>
-            
-            <div className="paddle" style={{
-                right: enemyPosition.x,
-                top: enemyPosition.y,
-            }}/>
-            <div className="ball" style={{
-                left: ballPosition.x,
-                top: ballPosition.y,
-            }}/>
+            <div className="game-objects">
+                <div className="paddle" style={{
+                    left: playerPosition.x,
+                    top: playerPosition.y,
+                }}/>
+                <div className="paddle" style={{
+                    right: enemyPosition.x,
+                    top: enemyPosition.y,
+                }}/>
+                <div className="ball" style={{
+                    left: ballPosition.x,
+                    top: ballPosition.y,
+                }}/>
+            </div>
 
-            {false && <div className="resume-buttons">
+            <div className="resume-buttons">
                 {(!gameRunning && score.player === 0 && score.enemy === 0) && 
                     <button className="start" onClick={startGame}>Start Game</button>}
 
-                {(!gameRunning && (score.player > 0 || score.enemy > 0) && score.player < 5 && score.enemy < 5) && 
-                    <button className="resume" onClick={resetGame}>Resume</button>}
-
-                {(!gameRunning && score.player === 5) && 
-                    <button className="game-over" onClick={startGame}>You Won! Press To Start Again</button>}
+                {(!gameRunning && score.player >= MAX_SCORE) && 
+                    <button className="game-over" onClick={startGame}>You Won! Play Again?</button>}
                 
-                {(!gameRunning && score.enemy === 5) && 
-                    <button className="game-over" onClick={startGame}>You Lost! Press To Start Again</button>}
-            </div>}
+                {(!gameRunning && score.enemy >= MAX_SCORE) && 
+                    <button className="loss" onClick={startGame}>You Lost! Play Again?</button>}
+            </div>
 
-            {<Countdown trigger={roundCount} countMax={3}/>}
+            {showCountdown && <div className="countdown-number" style={{color: ["greenyellow", "blue", "red"][countdownNumber-1]}}>{ countdownNumber }</div>}
         </div>
     );
 }

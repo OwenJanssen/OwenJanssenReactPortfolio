@@ -5,6 +5,7 @@
     display: flex;
     flex-direction: column;
     background-color: black;
+    font-family: Monaco, monospace;
 }
 
 .game-header {
@@ -35,6 +36,7 @@
 .resume-buttons {
     font-size: 30px;
     align-items: center;
+    font-size: 1.60rem;
 }
 
 .resume-buttons .start {
@@ -43,31 +45,38 @@
     top: 50%;
     height: 80px;
     width: 230px;
-    margin-left: -115px;
+    margin-left: -120px;
     margin-top: -40px;
-    background-color: grey;
+    background-color: black;
+    border: 6px white solid;
+    filter: drop-shadow(10px 10px greenyellow);  
 }
 
-.resume-buttons .resume {
+
+.resume-buttons .loss {
     position: absolute;
     left: 50%;
     top: 50%;
-    height: 80px;
-    width: 200px;
-    margin-left: -100px;
-    margin-top: -40px;
-    background-color: grey;
-}
-
-.resume-buttons .game-over {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    height: 150px;
+    height: 120px;
     width: 230px;
-    margin-left: -125px;
-    margin-top: -75px;
-    background-color: grey;
+    margin-left: -120px;
+    margin-top: -60px;
+    background-color: black;
+    border: 6px white solid;
+    filter: drop-shadow(10px 10px red);   
+}
+
+.resume-buttons .win {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 120px;
+    width: 230px;
+    margin-left: -120px;
+    margin-top: -60px;
+    background-color: black;
+    border: 6px white solid;
+    filter: drop-shadow(10px 10px blue);   
 }
 
 .paddle {
@@ -99,7 +108,7 @@
     position: absolute;
     width: 100vw;
     top: 90vh;
-    font-size: 50px;
+    font-size: 5rem;
     justify-content: space-around;
 }
 
@@ -115,13 +124,14 @@
     font-size: 8rem;
     width: 8rem;
     line-height: 8rem;
-    font-family: Monaco, monospace;
     position: relative;
     top: 50%;
     margin-top: -4rem;
     left: 50%;
     margin-left: -4rem;
     text-shadow: white 2px 2px;
+    border: 6px white solid;
+    border-radius: 2rem;
 
     background-color: black;
 }

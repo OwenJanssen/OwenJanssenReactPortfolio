@@ -61,6 +61,7 @@
   filter: drop-shadow(10px 10px CornflowerBlue);
 
   font-size: 24px;
+  font-family: Monaco, monospace;
   line-height: 24px;
   font-weight: 400;
   letter-spacing: -2px;
@@ -70,14 +71,4 @@
 .search-related-button {
   height: 45px;
   width: 45px;
-}
-
-.chord-diagram-container {
-  border: 5px solid black;
-  border-radius: 25px;
-  margin-right: 1.5rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
 }
