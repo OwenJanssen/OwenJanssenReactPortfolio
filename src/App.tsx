@@ -4,7 +4,8 @@ import React, { useRef, useState } from 'react';
 import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
 import Gallery from './components/Gallery/Gallery';
 import Pong from './components/Pong/Pong';
-import TVRatings from './components/TV Ratings/TvRatings';
+import HeaderAnimation from './components/HeaderAnimation/HeaderAnimation';
+// import TVRatings from './components/TV Ratings/TvRatings';
 
 const App = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -15,6 +16,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={
             <div>
+              <HeaderAnimation/>
               <Gallery/>
             </div>
           } />
@@ -23,11 +25,11 @@ const App = () => {
               <Pong containerRef={containerRef}/>
             </div>
           } />
-          <Route path="/tv" element={
+          {/* <Route path="/tv" element={
             <div>
               <TVRatings containerRef={containerRef}/>
             </div>
-          } />
+          } /> */}
         </Routes>
       </BrowserRouter>
     </div>

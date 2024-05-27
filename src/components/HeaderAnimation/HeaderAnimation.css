@@ -1,0 +1,57 @@
+.header-animation-body {
+    background-color: var(--background-color);
+    height: 400vh;
+}
+
+.header-animation-body .scroll-down-text {
+    position: absolute;
+    top: 50%; /* Initially centered vertically */
+    left: 50%; /* Initially centered horizontally */
+    transform: translate(-50%, -50%);
+    color: var(--text-color);
+    font-size: 65px;
+    font-weight: 700;
+    letter-spacing: -5.5px;
+}
+
+.header-animation-body .animation-canvas {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+}
+
+.header-animation-body .letter-o-inside,
+.header-animation-body .letter-o-outside {
+    position: fixed;
+    transform: translate(-50%, -50%);
+}
+
+.header-animation-body .letter-o-inside {
+    background-color: var(--background-color);
+}
+
+.header-animation-body .letter-o-outside {
+    background-color: var(--text-color);
+}
+
+.header-animation-body .animated-letter {
+    position: fixed;
+    transform: translate(-50%, -50%);
+    font-weight: 700;
+    letter-spacing: -5.5px;
+    color: var(--text-color);
+}
+
+.header-animation-body .animated-last-name {
+    transform: translate(-50%, -50%);
+    left: 20px;
+    position: fixed;
+    color: var(--text-color);
+    font-size: 65px;
+    line-height: 65px;
+    font-weight: 700;
+    letter-spacing: -5.5px;
+}

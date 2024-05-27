@@ -229,7 +229,7 @@ const Pong = ({containerRef}) : React.ReactElement => {
                     <button className="start" onClick={startGame}>Start Game</button>}
 
                 {(!gameRunning && score.player >= MAX_SCORE) && 
-                    <button className="game-over" onClick={startGame}>You Won! Play Again?</button>}
+                    <button className="win" onClick={startGame}>You Won! Play Again?</button>}
                 
                 {(!gameRunning && score.enemy >= MAX_SCORE) && 
                     <button className="loss" onClick={startGame}>You Lost! Play Again?</button>}

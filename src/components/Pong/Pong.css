@@ -53,19 +53,7 @@
 }
 
 
-.resume-buttons .loss {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    height: 120px;
-    width: 230px;
-    margin-left: -120px;
-    margin-top: -60px;
-    background-color: black;
-    border: 6px white solid;
-    filter: drop-shadow(10px 10px red);   
-}
-
+.resume-buttons .loss,
 .resume-buttons .win {
     position: absolute;
     left: 50%;
@@ -76,7 +64,14 @@
     margin-top: -60px;
     background-color: black;
     border: 6px white solid;
-    filter: drop-shadow(10px 10px blue);   
+}
+
+.resume-buttons .loss {
+    filter: drop-shadow(10px 10px red);
+}
+
+.resume-button .win {
+    filter: drop-shadow(10px 10px blue);
 }
 
 .paddle {
