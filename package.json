@@ -14,9 +14,8 @@
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.10.16",
     "@mui/material": "^5.10.17",
-    "d3-chord": "^3.0.1",
+    "d3": "^7.9.0",
     "react": "^18.2.0",
-    "react-chord-diagram": "^2.0.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.5",
     "string-similarity": "^4.0.4"

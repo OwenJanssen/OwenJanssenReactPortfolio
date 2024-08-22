@@ -1,0 +1,15 @@
+Main canvas area with toolbar on top and color selection on right
+Generate a bunch of random shapes
+
+You can click on a shape to bring up specific toolbar options like setting the number of vertices or the color 
+Last used color will be used as a dropshadow on the canvas
+Panel to specifically set css properties
+
+Toolbar without selection:
+Download
+Add
+
+Toolbar with selection:
+Delete
+Number of vertices
+Color
