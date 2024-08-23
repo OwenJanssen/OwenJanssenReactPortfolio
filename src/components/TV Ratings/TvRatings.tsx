@@ -128,7 +128,12 @@ const TVRatings = ({ containerRef }): React.ReactElement => {
             const height = containerRef.current.offsetHeight;
             const sideArea = height - 575;
 
-            setChordDiagramDimensions({height: Math.max(sideArea, 210), width: Math.max(sideArea, 210), inner: sideArea/4, outer: sideArea/4 + 20});
+            setChordDiagramDimensions({
+                height: Math.max(sideArea, 210),
+                width: Math.max(sideArea, 210),
+                innerRadius: sideArea / 4,
+                outerRadius: sideArea / 4 + 20
+            });
         }
     }, [containerRef.current, containerRef.current]);
 
