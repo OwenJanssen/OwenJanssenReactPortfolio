@@ -1,0 +1,68 @@
+.maze {
+    display: flex;
+    flex-direction: column;
+}
+
+.maze-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.maze-tile {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    background-color: black;
+    /* border: 1px solid white; */
+}
+
+.maze-tile .north-path,
+.maze-tile .east-path,
+.maze-tile .south-path,
+.maze-tile .west-path {
+    background-color: white;
+    position: absolute;
+}
+
+/* Horizontal paths */
+.maze-tile .north-path,
+.maze-tile .south-path {
+    width: 0.25rem;
+    height: 1.125rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Vertical paths */
+.maze-tile .east-path,
+.maze-tile .west-path {
+    width: 1.125rem;
+    height: 0.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Specific positioning */
+.maze-tile .north-path {
+    top: 0;
+    border-bottom-left-radius: 0.125rem;
+    border-bottom-right-radius: 0.125rem;
+}
+
+.maze-tile .east-path {
+    right: 0;
+    border-top-left-radius: 0.125rem;
+    border-bottom-left-radius: 0.125rem;
+}
+
+.maze-tile .south-path {
+    bottom: 0;
+    border-top-left-radius: 0.125rem;
+    border-top-right-radius: 0.125rem;
+}
+
+.maze-tile .west-path {
+    left: 0;
+    border-top-right-radius: 0.125rem;
+    border-bottom-right-radius: 0.125rem;
+}

@@ -1,6 +1,8 @@
 export type Genre = {
     name: string;
     selected: boolean;
+    color: string;
+    selectedColor: string;
 }
 
 export type TvShow = {
@@ -14,47 +16,65 @@ export type TvShow = {
 
 const Crime: Genre = {
     name: "Crime",
-    selected: false
+    selected: false,
+    color: "orange",
+    selectedColor: "black"
 };
 
 const Drama: Genre = {
     name: "Drama",
-    selected: false
+    selected: false,
+    color: "#E10098",
+    selectedColor: "black"
 };
 
 const Thriller: Genre = {
     name: "Thriller",
-    selected: false
+    selected: false,
+    color: "orange",
+    selectedColor: "black"
 };
 
 const Fantasy: Genre = {
     name: "Fantasy",
-    selected: false
+    selected: false,
+    color: "orange",
+    selectedColor: "black"
 };
 
 const Action: Genre = {
     name: "Action",
-    selected: false
+    selected: false,
+    color: "#E10098",
+    selectedColor: "black"
 }
 
 const Mystery: Genre = {
     name: "Mystery",
-    selected: false
+    selected: false,
+    color: "cyan",
+    selectedColor: "black"
 };
 
 const SciFi: Genre = {
     name: "Sci-Fi",
-    selected: false
+    selected: false,
+    color: "cornflowerblue",
+    selectedColor: "black"
 };
 
 const Comedy: Genre = {
     name: "Comedy",
-    selected: false
+    selected: false,
+    color: "cornflowerblue",
+    selectedColor: "black"
 };
 
 const Animated: Genre = {
     name: "Animated",
-    selected: false
+    selected: false,
+    color: "cyan",
+    selectedColor: "black"
 };
 
 export const TvRatingsList : TvShow[] = [

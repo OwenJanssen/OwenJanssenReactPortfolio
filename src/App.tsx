@@ -6,6 +6,7 @@ import Gallery from './components/Gallery/Gallery';
 import Pong from './components/Pong/Pong';
 import HeaderAnimation from './components/HeaderAnimation/HeaderAnimation';
 import TVRatings from './components/TV Ratings/TvRatings';
+import { InfiniteMaze } from './components/InfiniteMaze/InfiniteMaze';
 
 const App = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -15,7 +16,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={
-            <div>
+            <div className={"home-page"}>
               <HeaderAnimation/>
               <Gallery/>
             </div>
@@ -28,6 +29,11 @@ const App = () => {
           <Route path="/tv" element={
             <div>
               <TVRatings containerRef={containerRef}/>
+            </div>
+          } />
+          <Route path="/maze" element={
+            <div>
+              <InfiniteMaze containerRef={containerRef}/>
             </div>
           } />
         </Routes>

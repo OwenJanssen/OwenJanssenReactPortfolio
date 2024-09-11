@@ -1,3 +1,4 @@
+import { Tooltip } from '@mui/material';
 import React, { useEffect, useRef, useState } from 'react';
 import { TvShow } from './TvRatingsList';
 
@@ -12,7 +13,7 @@ const TvShowTitle = ({ title, filterString }: { title: string, filterString: str
     const beforeString = title.slice(0, indexOfFilterString);
     const afterString = title.slice(indexOfFilterString + filterString.length, title.length);
 
-    return <div className={"title"} key={"title"}>
+    return <div className={"title" + (title.length > 14 ? " long" : "")} key={"title"}>
         {beforeString}
         <div className={"highlighted"}>{filterString}</div>
         {afterString}
@@ -48,6 +49,14 @@ export const TvShowCard = ({ show, filterString }: TvShowCardProps): React.React
         setTitle(show.title + " ")
     };
 
+    // any episode with more than 18 character will be elipsified so we give it a tooltip to show the full title
+    const favoriteEpisode = show['favorite episode'];
+    const favoriteEpisodeDiv: React.ReactElement = favoriteEpisode.length > 18 ?
+        <Tooltip title={favoriteEpisode.length > 18 ? favoriteEpisode : undefined}>
+            <div className={"favorite-episode"} key={"favorite-episode-text"}>{favoriteEpisode}</div>
+        </Tooltip> :
+        <div className={"favorite-episode"} key={"favorite-episode-text"}>{favoriteEpisode}</div>;
+
     return <div className="card"
         key={show.title}
         onMouseEnter={onMouseEnter}
@@ -56,10 +65,10 @@ export const TvShowCard = ({ show, filterString }: TvShowCardProps): React.React
             <img src={show.image_url} className={"img"} />
         </div>
         <div className="card-text">
-            <TvShowTitle title={title} filterString={filterString} />
+            <TvShowTitle title={title.trim()} filterString={filterString} />
             <div className={"rating"} key={"rating"}>{show.rating}/10</div>
             <div className={"favorite-episode"} key={"favorite-episode-label"}>Favorite Episode:</div>
-            <div className={"favorite-episode"} key={"favorite-episode-text"}>{show['favorite episode']}</div>
+            {favoriteEpisodeDiv}
             <div className={"genres-section"}>
                 {show.genres.map((genre) =>
                     <div className="genre-chiclet" key={genre.name}>{genre.name}</div>
