@@ -72,12 +72,10 @@ const TVRatings = ({ containerRef }): React.ReactElement => {
     const [shows, setShows] = useState<TvShow[]>(sortAlphabetically(TvRatingsList));
     const [numberOfSelectedGenres, setNumberOfSelectedGenres] = useState<number>(0);
 
-    const [showSort, setShowSort] = useState<boolean>(false);
     const [sortMethod, setSortMethod] = useState<SortMethods>(SortMethods.A_TO_Z);
-    const [chordDiagramDimensions, setChordDiagramDimensions] = useState<chordDiagramDimensions>({
-        width: 400, height: 400, innerRadius: 100, outerRadius: 150
-    });
 
+    const chordDiagramContainerRef = useRef<HTMLDivElement>(null);
+    
     const updateSelectedGenres = (genre: Genre): void => {
         if (genre.selected)
         {
@@ -123,62 +121,36 @@ const TVRatings = ({ containerRef }): React.ReactElement => {
         setSortMethod(SortMethods.SEARCH);
     };
 
-    useLayoutEffect(() => {
-        if (containerRef.current) {
-            const height = containerRef.current.offsetHeight;
-            const sideArea = height - 575;
-
-            setChordDiagramDimensions({
-                height: Math.max(sideArea, 210),
-                width: Math.max(sideArea, 210),
-                innerRadius: sideArea / 4,
-                outerRadius: sideArea / 4 + 20
-            });
-        }
-    }, [containerRef.current, containerRef.current]);
-
-    const chordDiagramStyle = {
-        fontSize: 1 * (containerRef.current?.offsetHeight/1080) + "rem",
-        fontWeight: "600",
-        fontFamily: "Monaco, monospace",
-        letterSpacing: "-1px",
-        lineHeight: "1rem",
-        color: "black",
-    };
-
     return <div className="page-container tv-ratings">
         <div className="page-title">TV Ratings</div>
-        <div className="flex-row" style={{ marginTop: '2rem' }}>
+        <div className="flex-row top-level-button-container">
             <HomeButton />
             <TextFilterBar text={filterText} setText={filterOnText} />
-            <Tooltip title={"Sort"}>
-                <IconButton onClick={() => setShowSort(b => !b)}>
-                    <SortIcon sx={{ fontSize: "40px" }} />
-                </IconButton>
-            </Tooltip>
         </div>
-        
-        {showSort && <div className="buttons-bar">
-            <div className={"label"}>Sort:</div>
-            
-            <div className="button-grid">
-                {[SortMethods.A_TO_Z, SortMethods.RATING].map((sort: SortMethods) =>
-                    <div className={"selectable-button " + (sortMethod === sort ? "selected" : "unselected")}
-                        key={sort}
-                        onClick={() => updateSortMethod(sort)}>
-                        {sort}
-                    </div>
-                )}
-            </div>
-        </div>}
-
-        <GenresFilterBar genres={genres}
-            numberOfSelectedGenres={numberOfSelectedGenres}
-            updateSelectedGenres={updateSelectedGenres}
-            updateAllGenres={updateAllGenres}/>
 
         <div className={"tv-show-data-container"}>
-            <div className={"chord-diagram-container"}>
+            <div className={"button-bars-container"}>
+                <div className={"buttons-bar"}>
+                    <div className={"label"}>Sort:</div>
+                
+                    <div className={"button-grid"}>
+                        {[SortMethods.A_TO_Z, SortMethods.RATING].map((sort: SortMethods) =>
+                            <div className={"selectable-button " + (sortMethod === sort ? "selected" : "unselected")}
+                                key={sort}
+                                onClick={() => updateSortMethod(sort)}>
+                                {sort}
+                            </div>
+                        )}
+                    </div>
+                </div>
+            
+                <GenresFilterBar genres={genres}
+                    numberOfSelectedGenres={numberOfSelectedGenres}
+                    updateSelectedGenres={updateSelectedGenres}
+                    updateAllGenres={updateAllGenres}/>
+            </div>
+
+            <div className={"chord-diagram-container"} ref={chordDiagramContainerRef}>
                 <ChordDiagram
                     matrix={matrixForChordDiagram}
                     items={genres}
@@ -186,15 +158,15 @@ const TVRatings = ({ containerRef }): React.ReactElement => {
                     colorFunction={(genre: Genre) => genre.selected ? genre.selectedColor : genre.color}
                     selectedFunction={(genre: Genre) => genre.selected}
                     groupOnClick={(genre: Genre) => updateSelectedGenres(genre)}
-                    dimensions={chordDiagramDimensions}
-                    style={chordDiagramStyle}/>
+                    containerRef={chordDiagramContainerRef} />
             </div>
             
-            <TvShowCardGrid
-                chordDiagramDimensions={chordDiagramDimensions}
-                filterText={filterText}
-                numberOfSelectedGenres={numberOfSelectedGenres}
-                shows={shows}/>
+            <div className={"tv-card-grid-container"}>
+                <TvShowCardGrid
+                    filterText={filterText}
+                    numberOfSelectedGenres={numberOfSelectedGenres}
+                    shows={shows}/>
+            </div>
         </div>
     </div>;
 }

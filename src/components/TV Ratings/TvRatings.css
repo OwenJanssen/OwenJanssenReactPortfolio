@@ -3,23 +3,25 @@
     margin-right: 36px;
 }
 
+.tv-card-grid-container {
+    height: 100%;
+    flex-grow: 3;
+    display: flex;
+
+    overflow-y: scroll;
+    border: solid black thick;
+    border-radius: 25px;
+}
+
 .tv-card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, 19rem);
     grid-gap: 5rem;
     justify-content: center;
 
-    margin-left: 1.5rem;
-
-    padding: 3rem;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    
-    overflow-y: scroll;
-    border: solid black thick;
-    border-radius: 25px;
-
-    flex: 1;
+    height: 100%;
+    flex-grow: 1;
+    padding: 3rem 1rem;
 }
 
 .tv-card-grid .card {
@@ -132,6 +134,20 @@
     border-top-left-radius: 7.5px;
 }
 
+.tv-ratings .page-title {
+    font-size: 65px;
+    line-height: 65px;
+    font-weight: 700;
+    letter-spacing: -5.5px;
+    color: var(--text-color);
+    margin-top: 30px;
+    white-space: nowrap;
+}
+
+.tv-ratings .top-level-button-container {
+    margin: 3rem 0;
+}
+
 .tv-ratings ::-webkit-scrollbar {
     width: 17px;
 }
@@ -154,11 +170,23 @@
     border-left: solid black 4px;
 }
 
-.buttons-bar {
-    width: 90%;
-    margin: 2rem auto 0 auto;
+.button-bars-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    border: 5px black solid;
+    border-radius: 25px;
+    height: 100%;
+    overflow-y: auto;
+    margin-right: 1rem;
+
+    flex-grow: 1;
+}
+
+.buttons-bar {
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -170,6 +198,7 @@
     font-family: Monaco, monospace;
     color: black;
     margin-right: 1rem;
+    margin-bottom: 4px;
 }
 
 .buttons-bar .button-grid {
@@ -180,6 +209,7 @@
     align-items: center;
     align-content: center;
     justify-content: center;
+    width: 90%;
 }
 
 .selectable-button {
@@ -213,12 +243,11 @@
     flex-direction: row;
     align-self: center;
     align-items: center;
+    flex-grow: 1;
 
     width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 3rem;
-    justify-content: space-between;
+    height: 1px;
+    margin: 0 5% 3rem;
 }
 
 .card .genres-section {
@@ -254,9 +283,12 @@
 .chord-diagram-container {
     border: 5px solid black;
     border-radius: 25px;
-    margin-right: 1.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    height: 100%;
+    max-width: 500px;
+    margin-right: 1rem;
+    flex-grow: 3;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

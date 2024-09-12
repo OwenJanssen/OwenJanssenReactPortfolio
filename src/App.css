@@ -8,6 +8,7 @@
   height: 100vh;
   width: 100vw;
   background-color: var(--background-color);
+  display: flex;
 }
 
 .flex-row {
@@ -30,8 +31,8 @@
 }
 
 .page-container {
-  height: 100%;
-  width: 100%;
+  height: 99vh;
+  width: 100vw;
   position: relative;
   display: flex;
   flex-direction: column;

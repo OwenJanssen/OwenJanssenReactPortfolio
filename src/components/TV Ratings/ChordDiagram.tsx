@@ -1,6 +1,6 @@
 import { Tooltip } from "@mui/material";
 import * as d3 from "d3";
-import React from "react";
+import React, { useLayoutEffect, useState } from "react";
 
 const DEFAULT_MARGIN = 30;
 const DEFAULT_NODE_THICKNESS = 15;
@@ -20,15 +20,42 @@ export type ChordDiagramProps<ItemT> = {
     colorFunction: (item: ItemT) => string;
     selectedFunction: (item: ItemT) => boolean;
     groupOnClick?: (item: ItemT) => void;
-    dimensions: chordDiagramDimensions;
-    style?: React.CSSProperties;
     margin?: number;
     node_thickness?: number;
     node_connectin_padding?: number;
+    containerRef: React.RefObject<HTMLDivElement>;
 };
 
 export const ChordDiagram = <ItemT,>(props: ChordDiagramProps<ItemT>): React.ReactElement => {
-    const { matrix, items, labelFunction, colorFunction, selectedFunction, groupOnClick, dimensions, style } = props;
+    const { matrix, items, labelFunction, colorFunction, selectedFunction, groupOnClick, containerRef } = props;
+
+    const [dimensions, setDimensions] = useState<chordDiagramDimensions>({
+        width: 400, height: 400, innerRadius: 100, outerRadius: 150
+    });
+
+    const chordDiagramStyle = {
+        fontSize: "1rem",
+        fontWeight: "600",
+        fontFamily: "Monaco, monospace",
+        letterSpacing: "-1px",
+        lineHeight: "1rem",
+        color: "black",
+    };
+
+    useLayoutEffect(() => {
+        if (containerRef.current) {
+            const height = containerRef.current.offsetHeight;
+            const width = containerRef.current.offsetWidth;
+            const sideArea = Math.min(height, width) - 50;
+
+            setDimensions({
+                height: sideArea,
+                width: sideArea,
+                innerRadius: sideArea / 4,
+                outerRadius: sideArea / 4 + 20
+            });
+        }
+    }, [containerRef.current, containerRef.current]);
 
     const chordGenerator = d3
         .chord()
@@ -59,8 +86,7 @@ export const ChordDiagram = <ItemT,>(props: ChordDiagramProps<ItemT>): React.Rea
         const label: string = labelFunction(items[i]);
         const color: string = colorFunction(items[i]);
 
-        const x = label === "Crime" ? 10 : 15;
-        const textContent = group.value > 5 ? <text x={x} dy={10} fill="white">
+        const textContent = group.value > (dimensions.innerRadius/(label.length * 3)) ? <text x={15} dy={10} fill="white">
             <textPath xlinkHref={`#group${i}`} startOffset="50%">
                 {label}
             </textPath>
@@ -84,7 +110,7 @@ export const ChordDiagram = <ItemT,>(props: ChordDiagramProps<ItemT>): React.Rea
         return <path key={i} d={d} fill={"#69b3a2"} opacity={opacity} />;
     });
 
-    return <div style={style}>
+    return <div style={chordDiagramStyle}>
         <svg width={dimensions.width} height={dimensions.height}>
             <g transform={`translate(${dimensions.width / 2}, ${dimensions.height / 2})`}>
                 {allNodes}

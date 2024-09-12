@@ -4,7 +4,9 @@ import { TvShow } from './TvRatingsList';
 
 export type TvShowCardProps = {
     show: TvShow,
-    filterString: string
+    filterString: string,
+    firstCard?: boolean,
+    lastCard?: boolean
 };
 
 const TvShowTitle = ({ title, filterString }: { title: string, filterString: string }): React.ReactElement => {
@@ -20,7 +22,7 @@ const TvShowTitle = ({ title, filterString }: { title: string, filterString: str
     </div>
 };
 
-export const TvShowCard = ({ show, filterString }: TvShowCardProps): React.ReactElement => {
+export const TvShowCard = ({ show, filterString, firstCard, lastCard }: TvShowCardProps): React.ReactElement => {
     const [title, setTitle] = useState(show.title + " ");
     const scrollText = useRef(false);
 
@@ -57,7 +59,15 @@ export const TvShowCard = ({ show, filterString }: TvShowCardProps): React.React
         </Tooltip> :
         <div className={"favorite-episode"} key={"favorite-episode-text"}>{favoriteEpisode}</div>;
 
-    return <div className="card"
+    let className = "card";
+    if (firstCard) {
+        className += " first-card";
+    }
+    if (lastCard) {
+        className += " last-card";
+    }
+    
+    return <div className={className}
         key={show.title}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}>
