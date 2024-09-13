@@ -121,6 +121,21 @@ const TVRatings = ({ containerRef }): React.ReactElement => {
         setSortMethod(SortMethods.SEARCH);
     };
 
+    const chordOnClick = (genre1: Genre, genre2: Genre) => {
+        updateAllGenres(false);
+        updateSelectedGenres(genre1);
+        if (genre1.name !== genre2.name) {
+            updateSelectedGenres(genre2);
+        }
+    }
+
+    const chordTooltipFunction = (genre1: Genre, genre2: Genre) => {
+        if (genre1.name === genre2.name) {
+            return `Click to show filters with genre ${genre1.name}`;
+        }
+        return `Click to show filters with genres ${genre1.name} and ${genre2.name}`;
+    }
+
     return <div className="page-container tv-ratings">
         <div className="page-title">TV Ratings</div>
         <div className="flex-row top-level-button-container">
@@ -129,36 +144,44 @@ const TVRatings = ({ containerRef }): React.ReactElement => {
         </div>
 
         <div className={"tv-show-data-container"}>
-            <div className={"button-bars-container"}>
-                <div className={"buttons-bar"}>
-                    <div className={"label"}>Sort:</div>
+            <div className={"left-side-container"}>
+                <div className={"button-bars-container"}>
+                    <div className={"buttons-bar sort"}>
+                        <div className={"label"}>Sort:</div>
+                        <div className={"button-grid"}>
+                            {[SortMethods.A_TO_Z, SortMethods.RATING].map((sort: SortMethods) =>
+                                <div className={"selectable-button " + (sortMethod === sort ? "selected" : "unselected")}
+                                    key={sort}
+                                    onClick={() => updateSortMethod(sort)}>
+                                    {sort}
+                                </div>
+                            )}
+                        </div>
+                    </div>
                 
-                    <div className={"button-grid"}>
-                        {[SortMethods.A_TO_Z, SortMethods.RATING].map((sort: SortMethods) =>
-                            <div className={"selectable-button " + (sortMethod === sort ? "selected" : "unselected")}
-                                key={sort}
-                                onClick={() => updateSortMethod(sort)}>
-                                {sort}
-                            </div>
-                        )}
+                    <GenresFilterBar genres={genres}
+                        numberOfSelectedGenres={numberOfSelectedGenres}
+                        updateSelectedGenres={updateSelectedGenres}
+                        updateAllGenres={updateAllGenres}/>
+                </div>
+
+                <div className={"genres-diagram-section"}>
+                    <Tooltip title={"Each arc represents a genre. Chords between two genres represent TV shows of both genres."}>
+                        <div className={"label"}>Genre Relationships:</div>
+                    </Tooltip>
+                    <div className={"chord-diagram-container"} ref={chordDiagramContainerRef}>
+                        <ChordDiagram
+                            matrix={matrixForChordDiagram}
+                            items={genres}
+                            labelFunction={(genre: Genre) => genre.name}
+                            colorFunction={(genre: Genre) => genre.selected ? genre.selectedColor : genre.color}
+                            selectedFunction={(genre: Genre) => genre.selected}
+                            groupOnClick={(genre: Genre) => updateSelectedGenres(genre)}
+                            chordOnClick={chordOnClick}
+                            chordTooltipFunction={chordTooltipFunction}
+                            containerRef={chordDiagramContainerRef} />
                     </div>
                 </div>
-            
-                <GenresFilterBar genres={genres}
-                    numberOfSelectedGenres={numberOfSelectedGenres}
-                    updateSelectedGenres={updateSelectedGenres}
-                    updateAllGenres={updateAllGenres}/>
-            </div>
-
-            <div className={"chord-diagram-container"} ref={chordDiagramContainerRef}>
-                <ChordDiagram
-                    matrix={matrixForChordDiagram}
-                    items={genres}
-                    labelFunction={(genre: Genre) => genre.name}
-                    colorFunction={(genre: Genre) => genre.selected ? genre.selectedColor : genre.color}
-                    selectedFunction={(genre: Genre) => genre.selected}
-                    groupOnClick={(genre: Genre) => updateSelectedGenres(genre)}
-                    containerRef={chordDiagramContainerRef} />
             </div>
             
             <div className={"tv-card-grid-container"}>

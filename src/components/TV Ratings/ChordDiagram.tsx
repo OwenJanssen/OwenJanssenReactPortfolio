@@ -20,6 +20,8 @@ export type ChordDiagramProps<ItemT> = {
     colorFunction: (item: ItemT) => string;
     selectedFunction: (item: ItemT) => boolean;
     groupOnClick?: (item: ItemT) => void;
+    chordTooltipFunction?: (item1: ItemT, item2: ItemT) => string;
+    chordOnClick?: (item1: ItemT, item2: ItemT) => void;
     margin?: number;
     node_thickness?: number;
     node_connectin_padding?: number;
@@ -27,7 +29,7 @@ export type ChordDiagramProps<ItemT> = {
 };
 
 export const ChordDiagram = <ItemT,>(props: ChordDiagramProps<ItemT>): React.ReactElement => {
-    const { matrix, items, labelFunction, colorFunction, selectedFunction, groupOnClick, containerRef } = props;
+    const { matrix, items, labelFunction, colorFunction, selectedFunction, groupOnClick, chordOnClick, chordTooltipFunction, containerRef } = props;
 
     const [dimensions, setDimensions] = useState<chordDiagramDimensions>({
         width: 400, height: 400, innerRadius: 100, outerRadius: 150
@@ -86,7 +88,7 @@ export const ChordDiagram = <ItemT,>(props: ChordDiagramProps<ItemT>): React.Rea
         const label: string = labelFunction(items[i]);
         const color: string = colorFunction(items[i]);
 
-        const textContent = group.value > (dimensions.innerRadius/(label.length * 3)) ? <text x={15} dy={10} fill="white">
+        const textContent = group.value > (dimensions.innerRadius/(label.length * 2)) ? <text x={15} dy={10} fill="white">
             <textPath xlinkHref={`#group${i}`} startOffset="50%">
                 {label}
             </textPath>
@@ -106,8 +108,12 @@ export const ChordDiagram = <ItemT,>(props: ChordDiagramProps<ItemT>): React.Rea
 
     const allConnections = chord.map((connection, i) => {
         const d = ribbonGenerator(connection);
-        const opacity = selectedFunction(items[connection.source.index]) || selectedFunction(items[connection.target.index]) ? "0.6" : "0.3";
-        return <path key={i} d={d} fill={"#69b3a2"} opacity={opacity} />;
+        const source = items[connection.source.index];
+        const target = items[connection.target.index];
+        const opacity = selectedFunction(source) && selectedFunction(target) ? "0.6" : "0.3";
+        return <Tooltip title={chordTooltipFunction && chordTooltipFunction(source, target)} onClick={() => chordOnClick && chordOnClick(source, target)}>
+            <path key={i} d={d} fill={"#69b3a2"} opacity={opacity} />
+        </Tooltip>
     });
 
     return <div style={chordDiagramStyle}>
