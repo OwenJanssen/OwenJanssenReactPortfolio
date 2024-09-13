@@ -131,9 +131,9 @@ const TVRatings = ({ containerRef }): React.ReactElement => {
 
     const chordTooltipFunction = (genre1: Genre, genre2: Genre) => {
         if (genre1.name === genre2.name) {
-            return `Click to show filters with genre ${genre1.name}`;
+            return `Click to see ${genre1.name.toLocaleLowerCase()} shows`;
         }
-        return `Click to show filters with genres ${genre1.name} and ${genre2.name}`;
+        return `Click to see ${genre1.name.toLocaleLowerCase()} and ${genre2.name.toLocaleLowerCase()} shows`;
     }
 
     return <div className="page-container tv-ratings">
@@ -166,7 +166,7 @@ const TVRatings = ({ containerRef }): React.ReactElement => {
                 </div>
 
                 <div className={"genres-diagram-section"}>
-                    <Tooltip title={"Each arc represents a genre. Chords between two genres represent TV shows of both genres."}>
+                    <Tooltip title={"Each arc represents a genre, and chords between genres show TV shows that belong to both."}>
                         <div className={"label"}>Genre Relationships:</div>
                     </Tooltip>
                     <div className={"chord-diagram-container"} ref={chordDiagramContainerRef}>

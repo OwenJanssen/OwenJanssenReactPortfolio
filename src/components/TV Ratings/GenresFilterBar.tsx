@@ -12,7 +12,7 @@ export type GenreFilterBarProps = {
 export const GenresFilterBar = (props: GenreFilterBarProps): React.ReactElement => {
 
     return <div className="buttons-bar">
-        <div className="label">Filters: </div>
+        <div className="label">Filter By Genre: </div>
         <div className="button-grid">
             {props.genres.map((genre: Genre) =>
                 // use numberOfSelectedGenres in key because its observable and will update will the genre is selected so it will cause a rerender
