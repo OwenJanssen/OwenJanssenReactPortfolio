@@ -7,6 +7,7 @@ import Pong from './components/Pong/Pong';
 import HeaderAnimation from './components/HeaderAnimation/HeaderAnimation';
 import TVRatings from './components/TV Ratings/TvRatings';
 import { InfiniteMaze } from './components/InfiniteMaze/InfiniteMaze';
+import { AboutMe } from './components/AboutMe/AboutMe';
 
 const App = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -26,9 +27,14 @@ const App = () => {
               <Pong containerRef={containerRef}/>
             </div>
           } />
-          <Route path="/tv" element={
+          <Route path="/tv-ratings" element={
             <div>
-              <TVRatings containerRef={containerRef}/>
+              <TVRatings/>
+            </div>
+          } />
+          <Route path="/about-me" element={
+            <div>
+              <AboutMe/>
             </div>
           } />
           <Route path="/maze" element={

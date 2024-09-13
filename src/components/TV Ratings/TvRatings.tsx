@@ -1,21 +1,15 @@
 import './TvRatings.css'
 import '../../App.css'
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { TvShow, TvRatingsList, Genre } from './TvRatingsList';
 import { stringSortFunction } from '../../utilities/stringFunctions';
 
-import IconButton from '@mui/material/IconButton';
-import SortIcon from '@mui/icons-material/Sort';
 import HomeButton from '../HomeButton';
 import { ChordDiagram, chordDiagramDimensions } from './ChordDiagram';
 import { TvShowCardGrid } from './TvShowCardGrid';
 import { GenresFilterBar } from './GenresFilterBar';
 import { TextFilterBar } from './TextFilterBar';
 import { Tooltip } from '@mui/material';
-
-const tvShowObjectFromTitle = (title: string, shows: TvShow[]) => {
-    return shows.filter(show => show.title===title)[0];
-};
 
 const getGenres = (shows: TvShow[]): Genre[] => {
     const allGenres: Genre[] = shows.map(show => show.genres).flat();
@@ -67,7 +61,7 @@ enum SortMethods {
     SEARCH = "Search"
 }
 
-const TVRatings = ({ containerRef }): React.ReactElement => {
+const TVRatings = (): React.ReactElement => {
     const [filterText, setFilterText] = useState<string>("");
     const [shows, setShows] = useState<TvShow[]>(sortAlphabetically(TvRatingsList));
     const [numberOfSelectedGenres, setNumberOfSelectedGenres] = useState<number>(0);

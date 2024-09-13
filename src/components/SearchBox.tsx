@@ -1,27 +1,24 @@
 import '../App.css'
-import React, { useState, KeyboardEvent } from 'react';
+import React, { useState, KeyboardEvent, ChangeEvent } from 'react';
 import { rankedSearchResults } from '../utilities/stringFunctions';
 
 const SearchBox = ({listToSearch, setResults, searchKey, style}) : React.ReactElement => {
     const [searchText, setSearchText] = useState("");
 
+    const onChange = (event: ChangeEvent<HTMLInputElement>) => setSearchText(event.target.value);
+
     const keyDownHandler = (e: KeyboardEvent<HTMLInputElement>) => {
-        console.log(e.key)
         if (e.key === "Enter") {
-            const searchResults = rankedSearchResults(searchText, listToSearch, searchKey);
-            console.log(searchResults);
-            setResults(searchResults);
+            setResults(rankedSearchResults(searchText, listToSearch, searchKey));
         }
     }
 
-    return (
-        <input className='searchbox' 
-               placeholder='Search...'
-               value={searchText}
-               onChange={(e) => setSearchText(e.target.value)}
-               onKeyDown={keyDownHandler}
-               style={style}/>
-    )
+    return <input
+        className={"search-box"}
+        placeholder={"Search..."}
+        value={searchText}
+        onChange={onChange}
+        onKeyDown={keyDownHandler} />;
 }
 
 export default SearchBox;
