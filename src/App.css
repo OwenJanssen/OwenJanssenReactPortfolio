@@ -5,8 +5,6 @@
 }
 
 .App {
-  height: 100vh;
-  width: 100vw;
   background-color: var(--background-color);
   display: flex;
 }
@@ -31,12 +29,11 @@
 }
 
 .page-container {
-  height: 99vh;
-  width: 100vw;
+  width: calc(100vw - 15px);
+  height: 100vh;
   position: relative;
   display: flex;
   flex-direction: column;
-  overflow: none;
 }
 
 .header {
