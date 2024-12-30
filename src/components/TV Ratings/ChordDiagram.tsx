@@ -24,7 +24,7 @@ export type ChordDiagramProps<ItemT> = {
     chordOnClick?: (item1: ItemT, item2: ItemT) => void;
     margin?: number;
     node_thickness?: number;
-    node_connectin_padding?: number;
+    node_connection_padding?: number;
     containerRef: React.RefObject<HTMLDivElement>;
 };
 
@@ -67,7 +67,7 @@ export const ChordDiagram = <ItemT,>(props: ChordDiagramProps<ItemT>): React.Rea
 
     const margin: number = props.margin ?? DEFAULT_MARGIN;
     const node_thickness: number = props.node_thickness ?? DEFAULT_NODE_THICKNESS;
-    const node_connection_padding: number = props.node_connectin_padding ?? DEFAULT_NODE_CONNECTION_PADDING;
+    const node_connection_padding: number = props.node_connection_padding ?? DEFAULT_NODE_CONNECTION_PADDING;
 
     const radius = Math.min(dimensions.width, dimensions.height) / 2 - margin;
     const arcPathGenerator = d3.arc();

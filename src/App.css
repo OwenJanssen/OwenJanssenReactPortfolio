@@ -63,7 +63,7 @@
   display: flex;
   align-self: center;
   padding: 1rem;
-  border: 4px black solid;
+  border: 5px black solid;
   border-radius: 36px;
   background-color: cyan;
   filter: drop-shadow(10px 10px CornflowerBlue);

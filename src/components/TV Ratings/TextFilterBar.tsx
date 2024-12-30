@@ -7,7 +7,7 @@ export type TextFilterBarProps = {
 };
 
 export const TextFilterBar = (props: TextFilterBarProps): React.ReactElement => {
-    return <input className={"searchbox text-filter-bar"}
+    return <input className={"search-box text-filter-bar"}
         placeholder={"Search..."}
         value={props.text}
         onChange={(e) => props.setText(e.target.value)} />;

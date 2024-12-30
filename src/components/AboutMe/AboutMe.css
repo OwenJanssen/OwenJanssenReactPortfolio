@@ -7,3 +7,324 @@
     margin-top: 30px;
     white-space: nowrap;
 }
+
+.about-me .page-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.about-me .page-content .links {
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    border: 5px black solid;
+    border-radius: 25px;
+
+    width: calc(100% - 25px);
+
+    margin-bottom: 20px;
+}
+
+.about-me .page-content .links a {
+    font-size: 35px;
+    line-height: 60px;
+    font-weight: 600;
+    letter-spacing: -3.5px;
+}
+
+.about-me .sections {
+    display: flex;
+    flex-direction: row;
+}
+
+.about-me .about-me-section {
+    display: flex;
+    flex-direction: column;
+    border: 5px black solid;
+    border-radius: 25px;
+    flex: 1;
+    
+    width: fit-content;
+    height: 100%;
+    
+    margin: 0 10px;
+}
+
+.about-me .school {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.about-me .school .school-image {
+    border-radius: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.about-me .school .school-header {
+    justify-self: start;
+    padding: 10px;
+    z-index: 1;
+}
+
+.about-me .school .school-information {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    padding: 0 10px 10px 10px;
+    z-index: 1;
+}
+
+.about-me .school .school-name {
+    font-size: 35px;
+    line-height: 35px;
+    font-weight: 600;
+    letter-spacing: -3.5px;
+    color: white;
+    text-shadow: black 1px 1px;
+}
+
+.about-me .school .location-and-time {
+    font-size: 25px;
+    line-height: 25px;
+    font-weight: 500;
+    letter-spacing: -2px;
+    color: white;
+    text-shadow: black 1px 1px;
+
+    margin-bottom: 10px;
+}
+
+.about-me .school .student-info {
+    margin-bottom: 10px
+}
+
+.about-me .school .student-info,
+.about-me .school .activities {
+    background-color: rgba(78, 42, 132, 0.815);
+    border-radius: 20px;
+}
+
+.about-me .school .student-info .degree,
+.about-me .school .student-info .major,
+.about-me .school .activities {
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: 500;
+    letter-spacing: -3px;
+    color: white;
+    text-shadow: black 1px 1px;
+    padding: 5px;
+}
+
+.about-me .school .minor {
+    font-size: 25px;
+    line-height: 25px;
+    font-weight: 500;
+    letter-spacing: -2.5px;
+    color: white;
+    text-shadow: black 1px 1px;
+    padding: 0px 5px 5px 5px;
+}
+
+.about-me .school .major-section {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.about-me .music {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.about-me .music .guitars-image {
+    border-radius: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.about-me .music .music-header {
+    font-size: 35px;
+    line-height: 35px;
+    font-weight: 600;
+    letter-spacing: -3.5px;
+    color: white;
+    text-shadow: black 1px 1px;
+    z-index: 1;
+    padding: 10px
+}
+
+.about-me .music .background,
+.about-me .music .favorites {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    z-index: 1;
+    flex-grow: 1;
+}
+
+.about-me .music .background .title,
+.about-me .music .favorites .title {
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: 525;
+    letter-spacing: -3px;
+    color: white;
+    text-shadow: black 1px 1px;
+}
+
+.about-me .music .background .content {
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 525;
+    color: white;
+}
+
+.about-me .music .favorites .lists {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0px 10px 10px 10px;
+}
+
+.about-me .music .favorites .lists .songs,
+.about-me .music .favorites .lists .artists {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.about-me .music .favorites .lists .songs .title,
+.about-me .music .favorites .lists .artists .title {
+    font-size: 25px;
+    line-height: 25px;
+    font-weight: 450;
+    letter-spacing: -2.5px;
+    color: white;
+    text-shadow: black 1px 1px;
+    margin-bottom: 5px
+}
+
+.about-me .music .favorites .lists .songs .song,
+.about-me .music .favorites .lists .artists .artist {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.about-me .music .favorites .lists .songs .song:last-child,
+.about-me .music .favorites .lists .artists .artist:last-child {
+    margin-bottom: 0;
+}
+
+.about-me .hobbies {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.about-me .hobbies .hobbies-header {
+    font-size: 35px;
+    line-height: 35px;
+    font-weight: 600;
+    letter-spacing: -3.5px;
+    color: black;
+    z-index: 1;
+    padding: 10px;
+}
+
+.about-me .hobbies .hobbies-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
+    gap: 10px;
+    padding: 5px;
+}
+
+.hobby {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    color: black;
+    padding: 5px;
+    height: fit-content;
+}
+
+.hobby .hobby-name {
+    font-size: 25px;
+    line-height: 25px;
+    font-weight: 450;
+    letter-spacing: -2px;
+    width: 100%;
+}
+
+.hobby .image-container {
+    display: flex;
+    justify-content: center;
+}
+
+.hobby img {
+    padding: 10px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    aspect-ratio: 1/1;
+    max-width: 175px;
+    max-height: 175px;
+}
+
+.running-stats {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    margin-top: 10px;
+    width: 100%;
+    aspect-ratio: 1/1;
+    max-width: 173px;
+    max-height: 173px;
+
+    border: 1px black solid;
+    border-radius: 20px;
+}
+
+.running-stats .stat {
+    white-space: pre-wrap;
+}
