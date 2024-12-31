@@ -107,12 +107,12 @@ export const ChordDiagram = <ItemT,>(props: ChordDiagramProps<ItemT>): React.Rea
         .radius(radius - node_thickness - node_connection_padding);
 
     const allConnections = chord.map((connection, i) => {
-        const d = ribbonGenerator(connection);
+        const d = ribbonGenerator(connection as any);
         const source = items[connection.source.index];
         const target = items[connection.target.index];
         const opacity = selectedFunction(source) && selectedFunction(target) ? "0.6" : "0.3";
         return <Tooltip title={chordTooltipFunction && chordTooltipFunction(source, target)} onClick={() => chordOnClick && chordOnClick(source, target)}>
-            <path key={i} d={d} fill={"#69b3a2"} opacity={opacity} />
+            <path key={i} d={d as any} fill={"#69b3a2"} opacity={opacity} />
         </Tooltip>
     });
 

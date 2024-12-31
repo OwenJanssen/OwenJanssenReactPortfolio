@@ -2,14 +2,14 @@ import '../App.css'
 import React, { useState, KeyboardEvent, ChangeEvent } from 'react';
 import { rankedSearchResults } from '../utilities/stringFunctions';
 
-const SearchBox = ({listToSearch, setResults, searchKey, style}) : React.ReactElement => {
+const SearchBox = (props: {listToSearch: any[], setResults: (results: any[]) => void, searchKey: string}): React.ReactElement => {
     const [searchText, setSearchText] = useState("");
 
     const onChange = (event: ChangeEvent<HTMLInputElement>) => setSearchText(event.target.value);
 
     const keyDownHandler = (e: KeyboardEvent<HTMLInputElement>) => {
         if (e.key === "Enter") {
-            setResults(rankedSearchResults(searchText, listToSearch, searchKey));
+            props.setResults(rankedSearchResults(searchText, props.listToSearch, props.searchKey));
         }
     }
 

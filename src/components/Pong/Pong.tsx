@@ -12,12 +12,14 @@ type Score = {
     enemy: number;
 };
 
-const Pong = ({containerRef}) : React.ReactElement => {
+const Pong = (props: { containerRef: React.RefObject<HTMLDivElement> }) : React.ReactElement => {
     const ENEMY_PADDLE_MOVEMENT = 5;
     const PLAYER_PADDLE_MOMENT = 30;
     var BALL_HORIZONTAL_VELOCITY = 15;
     const PADDLE_DISTANCE_FROM_EDGE = 50;
     const MAX_SCORE = 5;
+
+    const containerRef = props.containerRef;
 
     const [playerPosition, setPlayerPosition] = useState<Position>({x: 0, y: 0});
     const [enemyPosition, setEnemyPosition] = useState<Position>({x: 0, y: 0});

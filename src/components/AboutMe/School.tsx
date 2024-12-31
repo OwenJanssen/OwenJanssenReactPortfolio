@@ -39,10 +39,10 @@ export const SchoolSection = () => {
                         </div>
                         <div className={"section"}>
                             <div className={"section-title"}>Philosophy</div>
+                            <div className={"class"}>Studies in French Philosophy</div>
+                            <div className={"class"}>The Nature of Humor</div>
                             <div className={"class"}>Introduction to Existentialism</div>
-                            <div className={"class"}>French Existentialism</div>
-                            <div className={"class"}>Studies in German Philosophy: Hegel</div>
-                            <div className={"class"}>Philosophy of Humor</div>
+                            <div className={"class"}>Hegelian Themes in Social Theory</div>
                         </div>
                     </div>
                 </div>

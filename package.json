@@ -15,14 +15,18 @@
     "@mui/icons-material": "^5.10.16",
     "@mui/material": "^5.10.17",
     "d3": "^7.9.0",
+    "firebase": "^11.1.0",
+    "midi-sounds-react": "^1.2.54",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.5",
     "string-similarity": "^4.0.4"
   },
   "devDependencies": {
+    "@types/d3": "^7.4.3",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
+    "@types/string-similarity": "^4.0.2",
     "@vitejs/plugin-react": "^3.0.0",
     "typescript": "^4.9.3",
     "vite": "^4.0.0"

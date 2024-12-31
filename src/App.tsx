@@ -1,13 +1,15 @@
 import './App.css';
 
-import React, { useRef, useState } from 'react';
-import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
+import { useRef } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Gallery from './components/Gallery/Gallery';
 import Pong from './components/Pong/Pong';
 import HeaderAnimation from './components/HeaderAnimation/HeaderAnimation';
 import TVRatings from './components/TV Ratings/TvRatings';
 import { InfiniteMaze } from './components/InfiniteMaze/InfiniteMaze';
 import { AboutMe } from './components/AboutMe/AboutMe';
+import ChorusHomepage from './components/Chorus/ChorusHomepage';
+import Chorus from './components/Chorus/Chorus';
 
 const App = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -40,6 +42,16 @@ const App = () => {
           <Route path="/maze" element={
             <div>
               <InfiniteMaze containerRef={containerRef}/>
+            </div>
+          } />
+          <Route path="/chorus" element={
+            <div>
+              <ChorusHomepage />
+            </div>
+          } />
+          <Route path="/chorus/session/:id" element={
+            <div>
+              <Chorus/>
             </div>
           } />
         </Routes>

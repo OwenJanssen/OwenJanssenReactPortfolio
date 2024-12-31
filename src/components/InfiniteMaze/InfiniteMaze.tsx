@@ -1,9 +1,8 @@
 import "./InfiniteMaze.css";
-
-import React from "react";
 import { generateMaze, Maze, MazeRow, MazeTile } from "./InfiniteMazeUtils";
+import React from "react";
 
-export const InfiniteMaze = ({ containerRef }): React.ReactElement => {
+export const InfiniteMaze = (props: { containerRef: React.RefObject<HTMLDivElement> }): React.ReactElement => {
     return <div className="page-container">
         <div className="page-title">Infinite Maze</div>
         <div className="maze-container">

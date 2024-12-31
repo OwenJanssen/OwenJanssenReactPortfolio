@@ -28,8 +28,12 @@
   border-radius: 56px;
 }
 
+.home-page .page-container {
+  width: calc(100vw - 15px); /* Subtract width of scroll bar */
+}
+
 .page-container {
-  width: calc(100vw - 15px);
+  width: 100vw;
   height: 100vh;
   position: relative;
   display: flex;
