@@ -14,7 +14,8 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100%;
+    margin-top: 40px;
+    height: calc(90% - 70px);
 }
 
 .about-me .page-content .links {
@@ -28,6 +29,7 @@
 
     width: calc(100% - 25px);
 
+    margin-top: 30px;
     margin-bottom: 20px;
 }
 
@@ -41,6 +43,9 @@
 .about-me .sections {
     display: flex;
     flex-direction: row;
+    flex: 1 1 0;
+    margin-bottom: 30px;
+    height: calc(100% - 30px);
 }
 
 .about-me .about-me-section {
@@ -51,7 +56,7 @@
     flex: 1;
     
     width: fit-content;
-    height: 100%;
+    height: calc(100% - 10px);
     
     margin: 0 10px;
 }
@@ -113,19 +118,22 @@
     margin-bottom: 10px;
 }
 
-.about-me .school .student-info {
+.about-me .school .student-info,
+.about-me .school .activities {
     margin-bottom: 10px
 }
 
 .about-me .school .student-info,
-.about-me .school .activities {
+.about-me .school .activities,
+.about-me .school .favorite-classes {
     background-color: rgba(78, 42, 132, 0.815);
     border-radius: 20px;
 }
 
 .about-me .school .student-info .degree,
 .about-me .school .student-info .major,
-.about-me .school .activities {
+.about-me .school .activities,
+.about-me .school .favorite-classes .title {
     font-size: 30px;
     line-height: 30px;
     font-weight: 500;
@@ -183,14 +191,29 @@
     padding: 10px
 }
 
+.about-me .music .music-sections {
+    flex: 1 1 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .about-me .music .background,
 .about-me .music .favorites {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    margin-top: 20px;
     z-index: 1;
-    flex-grow: 1;
+    
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    padding: 10px;
+    margin: 0 20px;
+}
+
+.about-me .music .favorites {
+    margin-top: 10px;
 }
 
 .about-me .music .background .title,
@@ -208,16 +231,20 @@
     line-height: 20px;
     font-weight: 525;
     color: white;
+    flex: 1 1 0;
 }
 
-.about-me .music .favorites .lists {
+.about-me .music .favorites .lists,
+.about-me .school .favorite-classes .classes-section {
     display: flex;
     justify-content: space-evenly;
     padding: 0px 10px 10px 10px;
+    flex: 1 1 0;
 }
 
 .about-me .music .favorites .lists .songs,
-.about-me .music .favorites .lists .artists {
+.about-me .music .favorites .lists .artists,
+.about-me .school .favorite-classes .section {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -226,7 +253,8 @@
 }
 
 .about-me .music .favorites .lists .songs .title,
-.about-me .music .favorites .lists .artists .title {
+.about-me .music .favorites .lists .artists .title,
+.about-me .school .favorite-classes .section-title {
     font-size: 25px;
     line-height: 25px;
     font-weight: 450;
@@ -237,7 +265,8 @@
 }
 
 .about-me .music .favorites .lists .songs .song,
-.about-me .music .favorites .lists .artists .artist {
+.about-me .music .favorites .lists .artists .artist,
+.about-me .school .favorite-classes .class {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     margin-bottom: 5px;
@@ -275,6 +304,7 @@
 
     gap: 10px;
     padding: 5px;
+    flex: 1 1 0;
 }
 
 .hobby {
@@ -284,7 +314,8 @@
     
     color: black;
     padding: 5px;
-    height: fit-content;
+    height: calc(100% - 10px);
+    width: calc(100% - 10px);
 }
 
 .hobby .hobby-name {
@@ -298,16 +329,16 @@
 .hobby .image-container {
     display: flex;
     justify-content: center;
+    height: 100%;
+    width: 100%;
 }
 
 .hobby img {
     padding: 10px;
-    width: 100%;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    border-radius: 30px;
     object-fit: cover;
-    border-radius: 20px;
-    aspect-ratio: 1/1;
-    max-width: 175px;
-    max-height: 175px;
 }
 
 .running-stats {
@@ -316,10 +347,8 @@
     justify-content: space-evenly;
 
     margin-top: 10px;
-    width: 100%;
-    aspect-ratio: 1/1;
-    max-width: 173px;
-    max-height: 173px;
+    width: calc(100% - 22px);
+    height: calc(100% - 20px);
 
     border: 1px black solid;
     border-radius: 20px;

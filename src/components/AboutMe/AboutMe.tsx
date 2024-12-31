@@ -12,15 +12,15 @@ export const AboutMe = () => {
 
         <div className={"page-content"}>
             <div className={"links"}>
-                <HomeButton/>
+                <HomeButton />
                 <a href="https://www.linkedin.com/in/owenjanssen/">LinkedIn</a>
                 <a href="https://github.com/owenjanssen">GitHub</a>
                 <a href="https://www.strava.com/athletes/123919368">Strava</a>
             </div>
             <div className={"sections"}>
-                <SchoolSection/>
-                <MusicSection/>
-                <HobbiesSection/>
+                <SchoolSection />
+                <MusicSection />
+                <HobbiesSection />
             </div>
         </div>
     </div>

@@ -12,11 +12,11 @@
 .tv-card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, 19rem);
-    grid-gap: 5rem;
+    grid-gap: 4rem;
     justify-content: center;
 
     flex: 1 1 0;
-    padding: 3rem 1rem;
+    padding: 4rem 1rem;
 
     border: solid black thick;
     border-radius: 25px;
