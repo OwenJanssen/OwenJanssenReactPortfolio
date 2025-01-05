@@ -23,7 +23,7 @@ const NoteButton = ({note, noteName, setNote, selectedNote, disabled}) => {
     )
 }
 
-const handleOctiveChange = (direction, setOctave, note, setNote) => {
+const handleOctaveChange = (direction, setOctave, note, setNote) => {
     setOctave((o) => {
         if (direction) {
             if (o+1 === 10 && note > 7) {
@@ -38,7 +38,7 @@ const handleOctiveChange = (direction, setOctave, note, setNote) => {
 
 const OctaveButton = ({setOctave, direction, note, setNote}) => {
     return (
-        <Button className="noteButton" onClick={() => handleOctiveChange(direction, setOctave, note, setNote)} data-testid={direction ? 'octave-plus-button' : 'octave-minus-button'}>
+        <Button className="noteButton" onClick={() => handleOctaveChange(direction, setOctave, note, setNote)} data-testid={direction ? 'octave-plus-button' : 'octave-minus-button'}>
             {direction ? "+" : "-"}
         </Button>
     )

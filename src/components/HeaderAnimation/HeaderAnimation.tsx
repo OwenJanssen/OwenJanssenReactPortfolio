@@ -25,7 +25,7 @@ const HeaderAnimation = () => {
 
         const handleScroll = () => {
             const scrollTop = html.scrollTop;
-            const maxScrollTop = html.scrollHeight - window.innerHeight;
+            const maxScrollTop = (4 * window.innerHeight - 40); // the height of the animation body is 400vh
             let sf = scrollTop / maxScrollTop;
             setScrollFraction(sf);
         };

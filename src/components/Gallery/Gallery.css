@@ -1,10 +1,10 @@
 .gallery-card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, 17.5rem);
-    grid-gap: 3rem;
+    grid-gap: 5rem 3rem;
     justify-content: center;
-    padding: 5rem;
-    margin-top: 5rem;
+    padding: 5%;
+    margin-top: 40px;
 }
 
 .gallery-card-grid .card {

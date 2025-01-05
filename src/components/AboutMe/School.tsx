@@ -9,8 +9,6 @@ export const SchoolSection = () => {
             <img className={"school-image"} src={imageUrl} alt={`Image of Northwestern University`} />
 
             <div className={"school-header"}>
-                <div className={"school-name"}>Evanston Township High School</div>
-                <div className={"location-and-time"}>Evanston, Illinois : 2015-2019</div>
                 <div className={"school-name"}>Northwestern University</div>
                 <div className={"location-and-time"}>Evanston, Illinois : 2019-2023</div>
             </div>
