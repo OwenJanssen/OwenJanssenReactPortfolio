@@ -1,6 +1,6 @@
 import './App.css';
 
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Gallery from './components/Gallery/Gallery';
 import Pong from './components/Pong/Pong';
@@ -10,9 +10,22 @@ import { InfiniteMaze } from './components/InfiniteMaze/InfiniteMaze';
 import { AboutMe } from './components/AboutMe/AboutMe';
 import ChorusHomepage from './components/Chorus/ChorusHomepage';
 import Chorus from './components/Chorus/Chorus';
+import { teacherConnectData as tcData } from './components/TeacherConnect/teacherConnectData';
+import TeacherConnectHomepage from './components/TeacherConnect/TeacherConnectHomepage';
+import TeacherPage from './components/TeacherConnect/TeacherPage';
+import FormHelpGroups from './components/TeacherConnect/FormHelpGroups';
+import StudentPage from './components/TeacherConnect/StudentPage';
+import ConceptPage from './components/TeacherConnect/ConceptPage';
+import LessonPage from './components/TeacherConnect/LessonPage';
 
 const App = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const [teacherConnectData, setTeacherConnectData] = useState(tcData);
+    
+  useEffect(()=>{
+    setTeacherConnectData(teacherConnectData);
+  }, [teacherConnectData]);
 
   return (
     <div className="App" ref={containerRef}>
@@ -25,33 +38,56 @@ const App = () => {
             </div>
           } />
           <Route path="/pong" element={
-            <div>
-              <Pong containerRef={containerRef}/>
-            </div>
+            <Pong containerRef={containerRef}/>
           } />
           <Route path="/tv-ratings" element={
-            <div>
-              <TVRatings/>
-            </div>
+            <TVRatings/>
           } />
           <Route path="/about-me" element={
-            <div>
-              <AboutMe/>
-            </div>
+            <AboutMe/>
           } />
           <Route path="/maze" element={
-            <div>
-              <InfiniteMaze containerRef={containerRef}/>
-            </div>
+            <InfiniteMaze containerRef={containerRef}/>
           } />
           <Route path="/chorus" element={
-            <div>
-              <ChorusHomepage />
-            </div>
+            <ChorusHomepage />
           } />
           <Route path="/chorus/session/:id" element={
-            <div>
-              <Chorus/>
+            <Chorus/>
+          } />
+          <Route path="/teacher-connect" element={
+            <div className={"teacher-connect page-container"}>
+              <TeacherConnectHomepage />
+            </div>
+          } />
+          <Route path="/teacher-connect/teacher" element={
+            <div className={"teacher-connect page-container"}>
+              <TeacherPage data={teacherConnectData} setData={setTeacherConnectData} />
+            </div>
+          } />
+          <Route path="/teacher-connect/teacher/groups" element={
+            <div className={"teacher-connect page-container"}>
+              <FormHelpGroups data={teacherConnectData} />
+            </div>
+          } />
+          <Route path="/teacher-connect/:userClass/:studentName/landing-page" element={
+            <div className={"teacher-connect page-container"}>
+              <StudentPage data={teacherConnectData} />
+            </div>
+          } />
+          <Route path="/teacher-connect/:userClass/:studentName" element={
+            <div className={"teacher-connect page-container"}>
+              <StudentPage data={teacherConnectData} />
+            </div>
+          } />
+          <Route path="/teacher-connect/:userClass/concept/:conceptId/" element={
+            <div className={"teacher-connect page-container"}>
+              <ConceptPage data={teacherConnectData} setData={setTeacherConnectData} />
+            </div>
+          } />
+          <Route path="/teacher-connect/:userClass/lesson/:lessonId/" element={
+            <div className={"teacher-connect page-container"}>
+              <LessonPage data={teacherConnectData} setData={setTeacherConnectData} />
             </div>
           } />
         </Routes>

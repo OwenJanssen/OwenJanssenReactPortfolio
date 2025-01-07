@@ -19,15 +19,25 @@ export interface size {
 
 const HeaderAnimation = () => {
     const [scrollFraction, setScrollFraction] = useState<number>(0);
+    const [showHeader, setShowHeader] = useState(true);
 
     useEffect(() => {
         window.scrollTo(0,0);
 
         const handleScroll = () => {
             const scrollTop = html.scrollTop;
-            const maxScrollTop = (4 * window.innerHeight - 40); // the height of the animation body is 400vh
+            const maxScrollTop = (3.75 * window.innerHeight - 40); // the height of the animation body is 400vh but I want it to finish early
             let sf = scrollTop / maxScrollTop;
             setScrollFraction(sf);
+
+            if (scrollTop >= 4 * window.innerHeight)
+            {
+                setShowHeader(false);
+            }
+            else
+            {
+                setShowHeader(true);
+            }
         };
 
         window.addEventListener('scroll', handleScroll);
@@ -114,7 +124,7 @@ const HeaderAnimation = () => {
                 {scrollFraction < 1 && <LastNameAnimation scrollFraction={scrollFraction}
                     startScrollFractionMoving={lastNameAppearingStart} endScrollFractionMoving={lastNameAppearingEnd}
                     endCenterOffset={endLastNameCenterOffset} />}
-                <Header visibleLetters={visibleLetters} hiddenLetters={hiddenLetters}/>
+                <div style={{visibility: showHeader ? "unset" : "hidden"}}><Header visibleLetters={visibleLetters} hiddenLetters={hiddenLetters}/></div>
             </div>
         </div>
     );

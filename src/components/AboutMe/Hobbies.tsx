@@ -6,10 +6,10 @@ export const HobbiesSection = () => {
          <div className={"hobbies"}>
              <div className={"hobbies-header"}>Other Hobbies</div>
              <div className={"hobbies-grid"}>
-                 <Hobby name={"Running"} imageUrl={"https://i.postimg.cc/PJtsQ7FL/Running.jpg"} altImgComponent={<RunningStats/>} />
-                 <Hobby name={"Skateboarding"} imageUrl={"https://i.postimg.cc/dQmJZ2Sk/Skateboarding.jpg"} gifUrl={"https://i.postimg.cc/Kv0FJZbm/Skateboarding-GIF.gif"}/>
-                 <Hobby name={"Rollerblading"} imageUrl={"https://i.postimg.cc/3J8YXkPL/Rollerblading.jpg"} gifUrl={"https://i.postimg.cc/134SdLRw/Rollerblading-GIF.gif"}/>
-                 <Hobby name={"Basketball"} imageUrl={"https://i.postimg.cc/0yn8CrF5/Celtics-Game.jpg"} altImgComponent={<Basketball/>}/>
+                 <Hobby name={"Running"} imageUrl={"../../../public/Running.jpg"} altImgComponent={<RunningStats/>} />
+                 <Hobby name={"Skateboarding"} imageUrl={"../../../public/Skateboarding.jpg"} gifUrl={"../../../public/Skateboarding\ GIF.gif"}/>
+                 <Hobby name={"Rollerblading"} imageUrl={"../../../public/Rollerblading.jpg"} gifUrl={"../../../public/Rollerblading\ GIF.gif"}/>
+                 <Hobby name={"Basketball"} imageUrl={"../../../public/Celtics\ Game.jpg"} altImgComponent={<Basketball/>}/>
              </div>
           </div>
      </div>;

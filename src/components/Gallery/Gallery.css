@@ -3,8 +3,7 @@
     grid-template-columns: repeat(auto-fill, 17.5rem);
     grid-gap: 5rem 3rem;
     justify-content: center;
-    padding: 5%;
-    margin-top: 40px;
+    padding: 2.5% 5% 5% 5%;
 }
 
 .gallery-card-grid .card {
@@ -61,4 +60,25 @@
     width: 100%;
     object-fit: cover;
     border-radius: 20px;
+}
+
+.gallery-card-grid .card .card-alt-text {
+    color: black;
+    width: 100%;
+    height: calc(100% - 10px);
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    background-color: orange;
+    padding: 5px;
+    border-radius: 20px;
+
+    font-size: 25px;
+    font-weight: 200;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: -1.5px;
+    line-height: 25px;
+    color: black;
+
+    white-space: pre-wrap;
 }

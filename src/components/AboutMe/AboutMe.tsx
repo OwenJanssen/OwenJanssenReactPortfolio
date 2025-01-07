@@ -1,6 +1,5 @@
 import './AboutMe.css'
 import '../../App.css'
-import React from 'react';
 import { SchoolSection } from './School';
 import { MusicSection } from './Music';
 import { HobbiesSection } from './Hobbies';

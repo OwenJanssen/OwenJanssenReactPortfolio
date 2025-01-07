@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Button, TextField } from '@mui/material';
+import background from "../../../public/Chorus.png";
 
 const ChorusHomepage = () => {
   const [joinId, setJoinId] = useState("");
@@ -23,7 +24,7 @@ const ChorusHomepage = () => {
     <div className="container">
       <div class="white-background">
         <div className="cover-div">
-          <img src={"https://i.postimg.cc/ydNsScv5/chorus-icon.png"} alt="chorus icon" />
+          <img src={background} alt="chorus icon" />
         </div>
 
         <div className="enter-code-form">
