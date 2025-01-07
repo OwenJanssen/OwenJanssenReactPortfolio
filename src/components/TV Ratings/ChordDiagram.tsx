@@ -32,7 +32,7 @@ export const ChordDiagram = <ItemT,>(props: ChordDiagramProps<ItemT>): React.Rea
     const { matrix, items, labelFunction, colorFunction, selectedFunction, groupOnClick, chordOnClick, chordTooltipFunction, containerRef } = props;
 
     const [dimensions, setDimensions] = useState<chordDiagramDimensions>({
-        width: 400, height: 400, innerRadius: 100, outerRadius: 150
+        width: 300, height: 300, innerRadius: 100, outerRadius: 150
     });
 
     const chordDiagramStyle = {

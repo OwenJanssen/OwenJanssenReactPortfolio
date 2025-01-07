@@ -41,25 +41,25 @@ const Gallery = (): React.ReactElement => {
         {
             url: "about-me",
             title: "About Me",
-            image_url: "../../../public/Headshot.jpeg",
-            gif_url: "../../../public/Headshot.jpeg",
+            image_url: "../../../Headshot.jpeg",
+            gif_url: "../../../Headshot.jpeg",
         },
         {
             url: "tv-ratings",
             title: "TV Ratings",
-            image_url: "../../../public/TV.png",
-            gif_url: "../../../public/TV.png",
+            image_url: "../../../TV.png",
+            gif_url: "../../../TV.png",
         },
         {
             url: "chorus",
             title: "Chorus",
-            image_url: "../../../public/Chorus\ Cover.png",
+            image_url: "../../../Chorus\ Cover.png",
             altImgComponent: <div className={"card-alt-text"}>{chorusText}</div>
         },
         {
             url: "teacher-connect",
             title: "Teacher Connect",
-            image_url: "../../../public/pencil_icon.svg",
+            image_url: "../../../pencil_icon.svg",
             altImgComponent: <div className={"card-alt-text"}>{teacherConnectText}</div>
         },
         {

@@ -146,7 +146,7 @@ export const LessonPage = ({ data, setData }) => {
                     Notes
                     {isTeacher && <div className="upload-notes">📤</div>}
                 </div>
-                <img src={"../../../public/whiteboard.png"}/>
+                <img src={"../../../whiteboard.png"}/>
             </div>
         </div>
 

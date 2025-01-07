@@ -2,7 +2,7 @@ import { Tooltip } from '@mui/material';
 import React from 'react';
 
 export const MusicSection = () => {
-     const imageUrl = "../../../public/Guitars.jpg";
+     const imageUrl = "../../../Guitars.jpg";
 
      return <div className="about-me-section">
           <div className={"music"}>
