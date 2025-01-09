@@ -9,6 +9,7 @@ import TVRatings from './components/TV Ratings/TvRatings';
 import { InfiniteMaze } from './components/InfiniteMaze/InfiniteMaze';
 import { AboutMe } from './components/AboutMe/AboutMe';
 import ChorusHomepage from './components/Chorus/ChorusHomepage';
+import Hotdogs from './components/Hotdogs/Hotdogs';
 import Chorus from './components/Chorus/Chorus';
 import { teacherConnectData as tcData } from './components/TeacherConnect/teacherConnectData';
 import TeacherConnectHomepage from './components/TeacherConnect/TeacherConnectHomepage';
@@ -85,6 +86,9 @@ const App = () => {
             <div className={"teacher-connect page-container"}>
               <LessonPage data={teacherConnectData} setData={setTeacherConnectData} />
             </div>
+          } />
+          <Route path="/vr-hotdogs" element={
+            <Hotdogs />
           } />
         </Routes>
       </BrowserRouter>
