@@ -1,13 +1,14 @@
 import './Chorus.css';
 import PlayNote from './PlayNote';
 import BpmSelector from './BpmSelector';
-import Piano from './Piano';
 import { NoteSelectorBar } from './NoteSelectorBar.jsx'
 import { useState, useEffect } from 'react';
 import { emptyBeatArray, neverGonnaGiveYouUp } from "./loops.js"
 import { Button, IconButton, Tooltip, CircularProgress, Chip } from '@mui/material';
 import { useParams } from 'react-router-dom';
-import { useDbData, useDbUpdate } from '/src/utilities/firebase';
+import { useDbData, useDbUpdate } from '../../utilities/firebase';
+
+import HomeButton from '../HomeButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Freestyle from './Freestyle';
 
@@ -25,7 +26,7 @@ export const ChorusContent = ({ id }) => {
   const [isPlayed, setIsPlayed] = useState(false);
   const [loop, setLoop] = useState(emptyBeatArray(measures, notesPerMeasure));
   const [selectedInstrument, setSelectedInstrument] = useState(0);
-  const [update, result] = useDbUpdate(`/chorus/sessions/${id}`);
+  const [update] = useDbUpdate(`/chorus/sessions/${id}`);
 
   useEffect(() => {
     // Update the document title using the browser API
@@ -36,7 +37,7 @@ export const ChorusContent = ({ id }) => {
   }, [data]);
 
   if (error) return <h1>Error loading data: {error.toString()}</h1>;
-  if (data === undefined) return <CircularProgress color="success" />;
+  if (data === undefined) return <div className={"page-container chorus"}><CircularProgress color="success" /></div>;
 
   const updateLoopToDb = (loopArr, bpmVal) => {
     update(
@@ -52,6 +53,7 @@ export const ChorusContent = ({ id }) => {
       <div className='flex-col'>
         <Chip label={`Code: ${id}`} color="success" id="code-chip" />
         <div className='flex-row' style={{ width: "50%", justifyContent: "space-evenly", marginTop: "10px", marginBottom: "10px" }}>
+          <HomeButton/>
           <div style={{ flex: 1 }}>
             <BpmSelector bpm={bpm} setBpm={setBpm} id={id} />
           </div>

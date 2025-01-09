@@ -1,6 +1,6 @@
 import React from 'react';
 import { LetterAnimationAppearingProps } from './LetterAnimation';
-import { getAnimationPercentage, size } from './HeaderAnimation';
+import { getAnimationPercentage, Size } from './HeaderAnimation';
 
 export const LetterOAnimation = (props: LetterAnimationAppearingProps) => {
     const [scrollFraction, startScrollFractionAppearing, endScrollFractionAppearing, startScrollFractionMoving, endScrollFractionMoving, endLeft] =
@@ -24,8 +24,8 @@ export const LetterOAnimation = (props: LetterAnimationAppearingProps) => {
         centerOffset: endLeft * percentageInMovingAnimation
     };
 
-    let outsideSize: size;
-    let insideSize: size;
+    let outsideSize: Size;
+    let insideSize: Size;
 
     if (percentageInMovingAnimation === 0) {
         outsideSize = {

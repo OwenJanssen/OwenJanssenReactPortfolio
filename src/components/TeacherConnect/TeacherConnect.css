@@ -72,6 +72,7 @@
 .teacher-connect .title {
     text-align: center;
     font-size: 3rem;
+    line-height: 3rem;
     font-weight: bold;
     cursor: pointer;
     will-change: filter;
@@ -123,6 +124,32 @@
     background-color: #e6e6e6;
     color: #333;
     transition: all 0.2s ease-in-out;
+}
+
+.teacher-connect .header-row {
+    margin-top: 20px;
+    justify-content: center;
+    width: 100%;
+}
+
+.teacher-connect .header-row .home-button {
+    background-color: #E89137;
+    width: 5rem;
+    margin-left: 40px;
+}
+
+.teacher-connect .header-row .home-button svg {
+    fill: white;
+}
+
+.teacher-connect .header-row .go-back-btn {
+    margin-right: 40px;
+    top: 0;
+    right: 0;
+    height: 3rem;
+    width: 5rem;
+    align-content: center;
+    font-size: 1.75rem;
 }
   
 .teacher-connect .homepage .user-class-buttons .user-class-button:hover {
@@ -366,7 +393,7 @@
     margin-bottom: 1rem;
     padding: 2rem;
     background-color: #424242;
-    border-radius: 1rem;;
+    border-radius: 1rem;
     width: 90%;
 }
   

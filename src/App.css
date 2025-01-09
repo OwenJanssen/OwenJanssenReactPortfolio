@@ -16,18 +16,6 @@
   align-items: center;
 }
 
-.home-button {
-  position: absolute;
-  top: 88vh;
-  left: 50%;
-  margin-left: -28px;
-  height: 56px;
-  width: 56px;
-  border: 1px white solid;
-  background-color: var(--background-color);
-  border-radius: 56px;
-}
-
 .home-page .page-container {
   width: calc(100vw - 15px); /* Subtract width of scroll bar */
 }

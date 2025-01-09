@@ -4,6 +4,10 @@
   font-family: 'PT Sans', "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
+.chorus .MuiCircularProgress-root {
+  margin: auto;
+}
+
 .chorus-homepage button {
   font-size: calc(10px + 2vmin);
 }
@@ -11,6 +15,7 @@
 .chorus .flex-col {
   display: flex;
   flex-direction: column;
+  align-self: flex-start;
 }
 
 .chorus .flex-row {
@@ -155,9 +160,8 @@
 
 .chorus-homepage .white-background{
   width: 30%;
-  padding-top: 50px;
+  padding: 40px 0 30px 0;
   background-color: white;
-  padding-bottom: 55px;
   border-radius: 50px;
 }
 
@@ -187,9 +191,5 @@
   margin-left: 40%;
   margin-right: 40%;
   margin-top: 10px;
-  
-  /* width: fit-content; */
-  
   padding: 15px;
-  /* border: 1px solid green; */
 }

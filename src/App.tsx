@@ -1,6 +1,6 @@
 import './App.css';
 
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Gallery from './components/Gallery/Gallery';
 import Pong from './components/Pong/Pong';
@@ -22,10 +22,6 @@ const App = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const [teacherConnectData, setTeacherConnectData] = useState(tcData);
-    
-  useEffect(()=>{
-    setTeacherConnectData(teacherConnectData);
-  }, [teacherConnectData]);
 
   return (
     <div className="App" ref={containerRef}>

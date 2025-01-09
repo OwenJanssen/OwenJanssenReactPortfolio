@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Button, TextField } from '@mui/material';
-import background from "../../../public/Chorus.png";
+import HomeButton from '../HomeButton';
 
 const ChorusHomepage = () => {
   const [joinId, setJoinId] = useState("");
@@ -22,15 +22,15 @@ const ChorusHomepage = () => {
 
   return <div className="page-container chorus-homepage">
     <div className="container">
-      <div class="white-background">
+      <div className="white-background">
         <div className="cover-div">
-          <img src={background} alt="chorus icon" />
+          <img src={"../../../Chorus.png"} alt="chorus icon" />
         </div>
 
         <div className="enter-code-form">
           <form className="join-with-code">
             <div className="join-with-code-field">
-              <div className={"join-text"} for="fname">Join With Code:</div>
+              <div className={"join-text"}>Join With Code:</div>
               <TextField
                   hiddenLabel
                   id="code"
@@ -49,11 +49,13 @@ const ChorusHomepage = () => {
 
         <div className={"join-text"}>-- OR --</div>
 
-        <div className='new-session-button' style={{ marginTop: "10px" }}>
+        <div className='new-session-button' style={{ margin: "10px 0" }}>
           <Button variant="outlined" color="success" onClick={() => {
             goToNewSession(Math.floor(1000 + Math.random() * 9000));
           }}>New Session</Button>
         </div>
+        
+        <HomeButton/>
       </div>
     </div>
   </div>;

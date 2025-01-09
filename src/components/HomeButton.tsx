@@ -9,7 +9,7 @@ const HomeButton = () => {
     }
 
     return (
-        <Tooltip title="Return To Portfolio" onClick={goHome} >
+        <Tooltip title="Return To Portfolio" onClick={goHome} className={"user-class-button home-button"} >
             <IconButton>
                 <HomeIcon sx={{fontSize: '40px'}}/>
             </IconButton>

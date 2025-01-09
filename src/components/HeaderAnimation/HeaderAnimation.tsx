@@ -4,15 +4,16 @@ import { LastNameAnimation } from './LastNameAnimation';
 import { LetterAnimation } from './LetterAnimation';
 import { LetterOAnimation } from './LetterOAnimation';
 import "./HeaderAnimation.css";
+import { getCookie, setCookie } from '../../utilities/Cookies';
 
 const html = document.documentElement;
 
-export interface position {
+export interface Position {
     top: number;
     left: number;
 }
 
-export interface size {
+export interface Size {
     width: number;
     height: number;
 }
@@ -22,7 +23,12 @@ const HeaderAnimation = () => {
     const [showHeader, setShowHeader] = useState(true);
 
     useEffect(() => {
-        window.scrollTo(0,0);
+        let scrollToY = 0;
+        if (getCookie("scrolled") === "y")
+        {
+            scrollToY = 4 * window.innerHeight;
+        }
+        window.scrollTo(0,scrollToY);
 
         const handleScroll = () => {
             const scrollTop = html.scrollTop;
@@ -33,6 +39,7 @@ const HeaderAnimation = () => {
             if (scrollTop >= 4 * window.innerHeight)
             {
                 setShowHeader(false);
+                setCookie("scrolled", "y", 1); // expires in a day
             }
             else
             {
