@@ -63,7 +63,7 @@ const Gallery = (): React.ReactElement => {
             altImgComponent: <div className={"card-alt-text"}>{teacherConnectText}</div>
         },
         {
-            url: "vr-hotdogs",
+            url: "hotdog-hangout",
             title: "Hotdog Hangout",
             image_url: "../../../hotdog-cover.jpeg",
             gif_url: "../../../hotdog-gif.gif"

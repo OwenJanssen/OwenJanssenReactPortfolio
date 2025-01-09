@@ -87,7 +87,7 @@ const App = () => {
               <LessonPage data={teacherConnectData} setData={setTeacherConnectData} />
             </div>
           } />
-          <Route path="/vr-hotdogs" element={
+          <Route path="/hotdog-hangout" element={
             <Hotdogs />
           } />
         </Routes>
