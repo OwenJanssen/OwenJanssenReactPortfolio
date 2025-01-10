@@ -18,6 +18,7 @@ import FormHelpGroups from './components/TeacherConnect/FormHelpGroups';
 import StudentPage from './components/TeacherConnect/StudentPage';
 import ConceptPage from './components/TeacherConnect/ConceptPage';
 import LessonPage from './components/TeacherConnect/LessonPage';
+import TerrorInTech from './components/TerrorInTech/TerrorInTech';
 
 const App = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -90,6 +91,9 @@ const App = () => {
           <Route path="/hotdog-hangout" element={
             <Hotdogs />
           } />
+          <Route path="/terror-in-tech" element={
+            <TerrorInTech />
+          }/>
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import pencil_icon from '../../../public/pencil_icon.svg';
+import pencil_icon from './pencil_icon.svg';
 import { SaveHistory } from './helper';
 import { routeInfo } from './teacherConnectData';
 import HomeButton from '../HomeButton';

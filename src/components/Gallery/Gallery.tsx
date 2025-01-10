@@ -53,20 +53,20 @@ const Gallery = (): React.ReactElement => {
         {
             url: "chorus",
             title: "Chorus",
-            image_url: "../../../Chorus\ Cover.png",
+            image_url: "../../../Chorus Cover.png",
             altImgComponent: <div className={"card-alt-text"}>{chorusText}</div>
-        },
-        {
-            url: "teacher-connect",
-            title: "Teacher Connect",
-            image_url: "../../../pencil_icon.svg",
-            altImgComponent: <div className={"card-alt-text"}>{teacherConnectText}</div>
         },
         {
             url: "hotdog-hangout",
             title: "Hotdog Hangout",
             image_url: "../../../hotdog-cover.jpeg",
             gif_url: "../../../hotdog-gif.gif"
+        },
+        {
+            url: "teacher-connect",
+            title: "Teacher Connect",
+            image_url: "../../../pencil_icon.svg",
+            altImgComponent: <div className={"card-alt-text"}>{teacherConnectText}</div>
         },
         {
             url: "pong",
@@ -76,7 +76,7 @@ const Gallery = (): React.ReactElement => {
         },
     ]
 
-    const cardComponents = cards.map(card => <Card card={card}></Card>)
+    const cardComponents = cards.map(card => <Card key={card.url} card={card}></Card>)
 
     return <div className="page-container">
         <div className="header" style={{visibility: showHeader ? "unset" : "hidden"}}>OWEN JANSSEN</div>
