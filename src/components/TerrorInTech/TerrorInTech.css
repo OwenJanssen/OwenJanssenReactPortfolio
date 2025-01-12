@@ -2,6 +2,26 @@
     background-color: black;
 }
 
+.terror-in-tech .home-button {
+    background-color: white;
+    width: fit-content;
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.terror-in-tech .home-button:hover {
+    background-color: lightgrey;
+}
+
 .terror-in-tech canvas {
     margin: auto 0;
+}
+
+.terror-in-tech .loading-screen {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

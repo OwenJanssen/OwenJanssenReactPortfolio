@@ -1,6 +1,7 @@
 import React, { ReactElement, useEffect, useState } from 'react';
 import './Gallery.css';
 import { Card } from './GalleryCard';
+import { stringSortFunction } from '../../utilities/stringFunctions';
 
 const html = document.documentElement;
 
@@ -36,6 +37,7 @@ const Gallery = (): React.ReactElement => {
 
     const chorusText = "Make music with your friends.\n\n Class:\nRapid Prototyping for Software Development";
     const teacherConnectText = "Enabling teachers to connect with their students.\n\n Class:\nHuman Computer Interaction Studio\n\n*unfinished*";
+    const terrorInTechText = "Fight waves of Geese invading NU, with your trusty paintball gun, to protect your professor Ian.\n\n Class:\nGame Design Studio"
 
     const cards: GalleryCard[] = [
         {
@@ -67,6 +69,12 @@ const Gallery = (): React.ReactElement => {
             title: "Teacher Connect",
             image_url: "../../../pencil_icon.svg",
             altImgComponent: <div className={"card-alt-text"}>{teacherConnectText}</div>
+        },
+        {
+            url: "terror-in-tech",
+            title: "Terror In Tech",
+            image_url: "../../../TerrorInTechCover.png",
+            altImgComponent: <div className={"card-alt-text"}>{terrorInTechText}</div>
         },
         {
             url: "pong",

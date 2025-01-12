@@ -20,6 +20,10 @@
     border-radius: 56px;
 }
 
+.pong-container .home-button button {
+    top: 0;
+}
+
 .pong-container .game-header {
     font-size: 100px;
     position: absolute;
