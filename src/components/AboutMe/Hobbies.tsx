@@ -1,4 +1,5 @@
 import React, { ReactElement, useState} from 'react';
+import { getAnalytics, logEvent } from "firebase/analytics";
 
 export const HobbiesSection = () => {
     return <div className="about-me-section">
@@ -31,6 +32,7 @@ export const Hobby = (props: HobbyProps) => {
         else if (props.altImgComponent != null) {
             setImageSrc(null);
         }
+        logEvent(getAnalytics(), `entered_hobby`, {"hobby": props.name});
     };
     const onMouseLeave = () => setImageSrc(props.imageUrl);
 

@@ -5,6 +5,7 @@ import { LetterAnimation } from './LetterAnimation';
 import { LetterOAnimation } from './LetterOAnimation';
 import "./HeaderAnimation.css";
 import { getCookie, setCookie } from '../../utilities/Cookies';
+import { getAnalytics, logEvent } from "firebase/analytics";
 
 const html = document.documentElement;
 
@@ -48,10 +49,15 @@ const HeaderAnimation = () => {
         };
 
         window.addEventListener('scroll', handleScroll);
+
+        const analytics = getAnalytics();
+        logEvent(analytics, "entering_home_page");
+
         return () => {
             window.removeEventListener('scroll', handleScroll);
+            logEvent(analytics, "exiting_home_page");
         };
-    }, [setScrollFraction]);
+    }, []);
 
     const startTop = window.innerHeight / 2;
 

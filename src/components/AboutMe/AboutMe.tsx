@@ -4,8 +4,19 @@ import { SchoolSection } from './School';
 import { MusicSection } from './Music';
 import { HobbiesSection } from './Hobbies';
 import HomeButton from '../HomeButton';
+import { useEffect } from 'react';
+import { getAnalytics, logEvent } from "firebase/analytics";
 
 export const AboutMe = () => {
+    useEffect(() => {
+        const analytics = getAnalytics();
+        logEvent(analytics, `entering_about_me`);
+
+        return () => {
+            logEvent(analytics, `exiting_about_me`);
+        };
+    }, []);
+
     return <div className="page-container about-me">
         <div className="page-title">About Me</div>
 

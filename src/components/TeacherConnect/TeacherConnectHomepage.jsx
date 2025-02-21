@@ -4,13 +4,21 @@ import pencil_icon from './pencil_icon.svg';
 import { SaveHistory } from './helper';
 import { routeInfo } from './teacherConnectData';
 import HomeButton from '../HomeButton';
+import { getAnalytics, logEvent } from 'firebase/analytics';
 
 import "./TeacherConnect.css"
 
 const TeacherConnectHomepage = () => {
     const navigate = useNavigate();
     React.useEffect(()=>{
-        routeInfo.setCurrentRoute({name:"Home",route:"/teacher-connect"})
+        routeInfo.setCurrentRoute({ name: "Home", route: "/teacher-connect" });
+        
+        const analytics = getAnalytics();
+        logEvent(analytics, `entering_teacher_connect`);
+
+        return () => {
+            logEvent(analytics, `exiting_teacher_connect`);
+        };
     },[])
 
     const nextPage = (newUserClass) => {

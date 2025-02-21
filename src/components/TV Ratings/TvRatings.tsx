@@ -1,6 +1,6 @@
 import './TvRatings.css'
 import '../../App.css'
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { TvShow, TvRatingsList, Genre } from './TvRatingsList';
 import { stringSortFunction } from '../../utilities/stringFunctions';
 
@@ -10,6 +10,7 @@ import { TvShowCardGrid } from './TvShowCardGrid';
 import { GenresFilterBar } from './GenresFilterBar';
 import { TextFilterBar } from './TextFilterBar';
 import { Tooltip } from '@mui/material';
+import { getAnalytics, logEvent } from 'firebase/analytics';
 
 const getGenres = (shows: TvShow[]): Genre[] => {
     const allGenres: Genre[] = shows.map(show => show.genres).flat();
@@ -62,6 +63,15 @@ enum SortMethods {
 }
 
 const TVRatings = (): React.ReactElement => {
+    useEffect(() => {
+        const analytics = getAnalytics();
+        logEvent(analytics, `entering_tv_ratings`);
+
+        return () => {
+            logEvent(analytics, `exiting_tv_ratings`);
+        };
+    }, []);
+
     const [filterText, setFilterText] = useState<string>("");
     const [shows, setShows] = useState<TvShow[]>(sortAlphabetically(TvRatingsList));
     const [numberOfSelectedGenres, setNumberOfSelectedGenres] = useState<number>(0);
@@ -71,6 +81,8 @@ const TVRatings = (): React.ReactElement => {
     const chordDiagramContainerRef = useRef<HTMLDivElement>(null);
     
     const updateSelectedGenres = (genre: Genre): void => {
+        const analytics = getAnalytics();
+        logEvent(analytics, `updating_genre`, { "genre": genre.name });
         if (genre.selected)
         {
             genre.selected = false;
@@ -99,6 +111,8 @@ const TVRatings = (): React.ReactElement => {
     }
 
     const updateSortMethod = (sort: SortMethods): void => {
+        const analytics = getAnalytics();
+        logEvent(analytics, `sorting_tv_ratings`, { "sorting_method": sort });
         if (sort === SortMethods.A_TO_Z) {
             setShows(sortAlphabetically(shows));
         }
@@ -116,6 +130,8 @@ const TVRatings = (): React.ReactElement => {
     };
 
     const chordOnClick = (genre1: Genre, genre2: Genre) => {
+        const analytics = getAnalytics();
+        logEvent(analytics, `clicking_chord`, { "genre1": genre1.name, "genre2": genre2.name });
         updateAllGenres(false);
         updateSelectedGenres(genre1);
         if (genre1.name !== genre2.name) {

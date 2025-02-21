@@ -1,10 +1,21 @@
 import './TerrorInTech.css'
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Unity, useUnityContext } from 'react-unity-webgl';
 import HomeButton from '../HomeButton';
+import { getAnalytics, logEvent } from 'firebase/analytics';
 
 export const TerrorInTech = (): React.ReactElement => {
+    useEffect(() => {
+        const analytics = getAnalytics();
+        logEvent(analytics, `entering_terror_in_tech`);
+
+        return () => {
+            logEvent(analytics, `exiting_terror_in_tech`);
+        };
+    }, []);
+
+
     const {unityProvider, loadingProgression, isLoaded} = useUnityContext({
         loaderUrl: "/Build/TerrorInTech.loader.js",
         dataUrl: "/Build/TerrorInTech.data.br",

@@ -12,7 +12,7 @@ export const MusicSection = () => {
                <div className={"music-sections"}>
                     <div className={"background"}>
                          <div className={"title"}>Background</div>
-                         <div className={"content"}>At the start of 2024 I started learning guitar. I mostly play the electric guitar and call it "Blue Lightning". My favorite genres to play are alternative rock or folk</div>
+                         <div className={"content"}>I've been playing guitar since the start of 2024. The first guitar I bought was the acoustic but now I mostly play the electric guitar which I call "Blue Lightning." My favorite genres to play are alternative rock or folk.</div>
                     </div>
                     <div className={"favorites"}>
                          <div className={"title"}>Favorites</div>

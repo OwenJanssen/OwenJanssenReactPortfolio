@@ -1,6 +1,7 @@
 import React, { KeyboardEvent, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import HomeButton from '../HomeButton';
 import './Pong.css';
+import { getAnalytics, logEvent } from 'firebase/analytics';
 
 type Position = {
     x: number;
@@ -12,7 +13,16 @@ type Score = {
     enemy: number;
 };
 
-const Pong = (props: { containerRef: React.RefObject<HTMLDivElement> }) : React.ReactElement => {
+const Pong = (props: { containerRef: React.RefObject<HTMLDivElement> }): React.ReactElement => {
+    useEffect(() => {
+        const analytics = getAnalytics();
+        logEvent(analytics, `entering_pong`);
+
+        return () => {
+            logEvent(analytics, `exiting_pong`);
+        };
+    }, []);
+
     const ENEMY_PADDLE_MOVEMENT = 5;
     const PLAYER_PADDLE_MOMENT = 30;
     var BALL_HORIZONTAL_VELOCITY = 15;

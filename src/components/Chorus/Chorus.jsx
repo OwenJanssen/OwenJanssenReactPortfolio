@@ -7,6 +7,7 @@ import { emptyBeatArray, neverGonnaGiveYouUp } from "./loops.js"
 import { Button, IconButton, Tooltip, CircularProgress, Chip } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { useDbData, useDbUpdate } from '../../utilities/firebase';
+import { getAnalytics, logEvent } from "firebase/analytics";
 
 import HomeButton from '../HomeButton';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -27,6 +28,15 @@ export const ChorusContent = ({ id }) => {
   const [loop, setLoop] = useState(emptyBeatArray(measures, notesPerMeasure));
   const [selectedInstrument, setSelectedInstrument] = useState(0);
   const [update] = useDbUpdate(`/chorus/sessions/${id}`);
+
+    useEffect(() => {
+      const analytics = getAnalytics();
+      logEvent(analytics, `entering_chorus`);
+
+      return () => {
+        logEvent(analytics, `exiting_chorus`);
+      };
+    }, []);
 
   useEffect(() => {
     // Update the document title using the browser API
