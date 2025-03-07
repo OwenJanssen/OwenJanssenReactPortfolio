@@ -1,0 +1,27 @@
+.state-management {
+    display: flex;
+    flex-direction: row;
+}
+
+.state-management .balloon-container {
+    border: 1px solid black;
+    height: calc(100% - 40px);
+    width: calc(100% - 40px);
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.state-management .balloon-container .inputs {
+    color: var(--text-color);
+    background-color: var(--background-color);
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.state-management .balloon-container .inputs > input {
+    color: var(--text-color);
+    background-color: var(--background-color);
+}

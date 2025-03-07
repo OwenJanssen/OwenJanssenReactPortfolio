@@ -19,6 +19,7 @@ import StudentPage from './components/TeacherConnect/StudentPage';
 import ConceptPage from './components/TeacherConnect/ConceptPage';
 import LessonPage from './components/TeacherConnect/LessonPage';
 import TerrorInTech from './components/TerrorInTech/TerrorInTech';
+import { StateManagement } from './components/StateManagement/StateManagement';
 
 const App = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -93,6 +94,9 @@ const App = () => {
           } />
           <Route path="/terror-in-tech" element={
             <TerrorInTech />
+          } />
+          <Route path="/state-management" element={
+            <StateManagement />
           }/>
         </Routes>
       </BrowserRouter>
