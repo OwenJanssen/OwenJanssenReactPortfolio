@@ -14,6 +14,15 @@
     align-items: center;
 }
 
+.state-management .balloon-container .balloon {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
 .state-management .balloon-container .inputs {
     color: var(--text-color);
     background-color: var(--background-color);
