@@ -86,7 +86,7 @@ const Gallery = (): React.ReactElement => {
     const cardComponents = cards.map(card => <Card key={card.url} card={card}></Card>)
 
     return <div className="page-container">
-        <div className="header" style={{visibility: showHeader ? "unset" : "hidden"}}>OWEN JANSSEN</div>
+        <div className="header">OWEN JANSSEN</div>
         <div className="gallery-card-grid">
             {cardComponents}
         </div>

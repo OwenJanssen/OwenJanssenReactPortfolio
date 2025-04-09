@@ -20,6 +20,7 @@ import ConceptPage from './components/TeacherConnect/ConceptPage';
 import LessonPage from './components/TeacherConnect/LessonPage';
 import TerrorInTech from './components/TerrorInTech/TerrorInTech';
 import { StateManagement } from './components/StateManagement/StateManagement';
+import { Header } from './components/Header';
 
 const App = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -32,7 +33,6 @@ const App = () => {
         <Routes>
           <Route path="/" element={
             <div className={"home-page"}>
-              <HeaderAnimation/>
               <Gallery/>
             </div>
           } />
