@@ -1,5 +1,5 @@
 import React from 'react';
 
-export function UseReducerExample() {
+export function UseMemoExample() {
     return <div></div>
 }

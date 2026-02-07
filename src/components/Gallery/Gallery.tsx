@@ -42,8 +42,8 @@ const Gallery = (): React.ReactElement => {
         {
             url: "about-me",
             title: "About Me",
-            image_url: "../../../Headshot.jpeg",
-            gif_url: "../../../Headshot.jpeg",
+            image_url: "../../../Headshot.jpg",
+            gif_url: "../../../Owen.gif",
         },
         {
             url: "tv-ratings",
@@ -56,12 +56,6 @@ const Gallery = (): React.ReactElement => {
             title: "Chorus",
             image_url: "../../../Chorus Cover.png",
             altImgComponent: <div className={"card-alt-text"}>{chorusText}</div>
-        },
-        {
-            url: "hotdog-hangout",
-            title: "Hotdog Hangout",
-            image_url: "../../../hotdog-cover.jpeg",
-            gif_url: "../../../hotdog-gif.gif"
         },
         {
             url: "teacher-connect",
